@@ -1,5 +1,9 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { exec } = require('child_process');
+const config = require("../data/config.json");
+
+var langConf = config.lang;
+const l = require(`../lang/${langConf}.json`);
 
 module.exports = {
     category: "information",
