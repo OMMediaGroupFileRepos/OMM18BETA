@@ -7,4 +7,4 @@ git pull origin main
 npm install
 
 # Restart the bot
-pm2 restart bot
+pm2 restart main.js
