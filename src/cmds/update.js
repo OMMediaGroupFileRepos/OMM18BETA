@@ -11,21 +11,7 @@ module.exports = {
         .setName("update")
         .setDescription("updaten."),
     async execute(client, interaction) {
-    try {
-      // Execute the shell script
-      exec('git pull origin main && npm install && pm2 restart main.js', (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-        interaction.reply({ content: 'Failed to update the bot', ephemeral: true });
-        return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-        interaction.reply({ content: 'Bot updated successfully', ephemeral: true });
-      });
-    } catch (error) {
-      console.error(error);
-      interaction.reply({ content: 'Failed to update the bot\n' + `\`\`\`${error}\`\`\``, ephemeral: true });
-    }
+        
+      exec('git pull origin main && npm install && pm2 restart main.js')
   },
 };
