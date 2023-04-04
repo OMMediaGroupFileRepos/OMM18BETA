@@ -9,7 +9,7 @@ module.exports = {
     category: "information",
     data: new SlashCommandBuilder()
         .setName("update")
-        .setDescription(l.pingDesc),
+        .setDescription("updaten."),
     async execute(client, interaction) {
     try {
       // Execute the shell script
