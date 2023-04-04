@@ -13,7 +13,7 @@ module.exports = {
     async execute(client, interaction) {
     try {
       // Execute the shell script
-      exec('../../update.sh', (error, stdout, stderr) => {
+      exec('./update.sh', (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
           return interaction.reply({ content: 'Failed to update the bot', ephemeral: true });
