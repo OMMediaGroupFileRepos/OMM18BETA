@@ -14,6 +14,8 @@ module.exports = {
 
     await interaction.reply({ content: "Processing update, check updatelogs [latest] for current version.", ephemeral: true})
 
-      exec('git pull origin main && npm install && pm2 restart main.js')
+      exec('git pull origin main')
+      exec('npm install')
+      exec('pm2 restart main.js')
   },
 };
