@@ -16,7 +16,8 @@ module.exports = {
       exec('./update.sh', (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
-          return interaction.reply({ content: 'Failed to update the bot', ephemeral: true });
+        interaction.reply({ content: 'Failed to update the bot', ephemeral: true });
+        return;
         }
         console.log(`stdout: ${stdout}`);
         console.error(`stderr: ${stderr}`);
