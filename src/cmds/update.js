@@ -11,7 +11,9 @@ module.exports = {
         .setName("update")
         .setDescription("updaten."),
     async execute(client, interaction) {
-        
+
+        await interaction.reply({ content: "Processing update, check updatelogs [latest] for current version.", ephemeral: true})
+
       exec('git pull origin main && npm install && pm2 restart main.js')
   },
 };
