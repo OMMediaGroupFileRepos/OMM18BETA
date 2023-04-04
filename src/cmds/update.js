@@ -2,10 +2,11 @@ const { SlashCommandBuilder } = require("discord.js");
 const { exec } = require('child_process');
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName('update')
-    .setDescription('Update the bot'),
-  async execute(interaction) {
+    category: "information",
+    data: new SlashCommandBuilder()
+        .setName("update")
+        .setDescription(l.pingDesc),
+    async execute(client, interaction) {
     try {
       // Execute the shell script
       exec('../../update.sh', (error, stdout, stderr) => {
