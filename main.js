@@ -20,6 +20,7 @@ const l = require(`./src/lang/${langConf}.json`);
 client.once("ready", () => {
 
     console.log(`-- ${pkg.LTSCodename} --`);
+    console.log(`-- ${pkg.version} --`);
     console.log(`-=- ${client.user.tag} -=-`);
 
     let guild = config.guild;
