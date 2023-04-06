@@ -1,0 +1,14 @@
+{
+    "client": "test",
+    "id": "clientid",
+    "guild": "id",
+    "footer": "Gemaakt door Mika",
+    "watermark_nostamp": "Mika",
+    "lang": "en",
+    "reviewChannel": "id",
+    "suggestChannel": "id",
+    "ticketCat": "id",
+    "logging": "name",
+    "supportRole": "name",
+    "guildName": "name"
+}
