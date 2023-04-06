@@ -24,8 +24,8 @@ module.exports = {
         var bericht = "";
 
         let latest = new EmbedBuilder()
-            .setTitle("Latest update")
-            .setDescription("**__What's new?__**\n\n```diff\n ```\n** **\n```diff\n ```\n** **\n")
+            .setTitle("Latest update, APR23 (0.0.6)")
+            .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot```\n** **\n```diff\n ```\n** **\n")
             .setFooter({ text: config.footer })
             //.setColor("#1111")
             .setTimestamp()
