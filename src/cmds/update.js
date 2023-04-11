@@ -14,7 +14,7 @@ module.exports = {
 
       let latest = new EmbedBuilder()
             .setTitle("Updating the bot...")
-            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n`Execute````/updatelogs [LATEST]````to see what's new!`")
+            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n`Execute`\n```/updatelogs [LATEST]```\n`to see what's new!`\n** **\n")
             .setFooter({ text: config.footer })
             //.setColor("#1111")
             .setTimestamp()
