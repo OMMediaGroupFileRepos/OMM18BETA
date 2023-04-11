@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const config = require("../data/config.json");
-const { Configuration, OpenAIApi } = require("openai");
+const { openai } = require("openai");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
