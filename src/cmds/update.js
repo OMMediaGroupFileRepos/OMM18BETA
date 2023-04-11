@@ -14,9 +14,8 @@ module.exports = {
 
       let latest = new EmbedBuilder()
             .setTitle("Updating the bot...")
-            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n`Execute`\n```/updatelogs [LATEST]```\n`to see what's new!`\n** **\n")
+            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n**`Execute the command below to check what's new!`**\n```/updatelogs update:Latest```\n** **\n")
             .setFooter({ text: config.footer })
-            //.setColor("#1111")
             .setTimestamp()
 
     await interaction.reply({ embeds: [latest], ephemeral: true})
