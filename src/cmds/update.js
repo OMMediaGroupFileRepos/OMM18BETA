@@ -13,8 +13,8 @@ module.exports = {
     async execute(client, interaction) {
 
       let latest = new EmbedBuilder()
-            .setTitle("Updating the bot...")
-            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n**`Execute the command below to check what's new!`**\n```/updatelogs update:Latest```\n** **\n")
+            .setTitle("Updating the bot...\n**The bot is gonna update to a newer version of the code, if available.**")
+            .setDescription("\n**`Execute the command below to check what's new!`**\n```/updatelogs update:Latest```\n** **\n")
             .setFooter({ text: config.footer })
             .setTimestamp()
 
