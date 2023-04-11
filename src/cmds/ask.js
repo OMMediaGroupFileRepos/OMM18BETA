@@ -1,13 +1,9 @@
 const { SlashCommandBuilder } = require("discord.js");
 const config = require("../data/config.json");
-const { openai } = require("openai");
+const { ask } = require("../../ai.js");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
-
-// configureer de OpenAI SDK
-openai.api_key = "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";
-console.log(openai.__version__);
 
 module.exports = {
     category: "information",
@@ -19,6 +15,9 @@ module.exports = {
                 .setDescription("Enter your question here")
                 .setRequired(true)),
     async execute(client, interaction) {
+        
+        const answer = await ask(prompt); //prompt GPT-3
 
+        await interaction.reply({ content: answer, ephemeral: true }); // stuur het antwoord terug naar de gebruiker
     },
 };
