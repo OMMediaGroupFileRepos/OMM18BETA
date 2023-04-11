@@ -26,7 +26,7 @@ module.exports = {
 
         let latest = new EmbedBuilder()
             .setTitle("Latest update, (" + pkg.version + ")")
-            .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot```\n** **\n```diff\n ```\n** **\n")
+            .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot```\n** **\n```diff\n + Fixed some styling```\n** **\n```diff\n + Added Limburgs, Nederlands (Limburg)```\n")
             .setFooter({ text: config.footer })
             //.setColor("#1111")
             .setTimestamp()
