@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
 const config = require("../data/config.json");
+const pkg = require("../../package.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
@@ -24,7 +25,7 @@ module.exports = {
         var bericht = "";
 
         let latest = new EmbedBuilder()
-            .setTitle("Latest update, APR23 (0.0.6)")
+            .setTitle("Latest update, (" + pkg.version + ")")
             .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot```\n** **\n```diff\n ```\n** **\n")
             .setFooter({ text: config.footer })
             //.setColor("#1111")

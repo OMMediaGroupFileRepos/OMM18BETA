@@ -65,12 +65,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZionMediaOfficial/OMM.JS.V1.git"
+    "url": "git+https://github.com/OMMediaGroupFileRepos/OMM.JS.V1.git"
   },
   "author": "OfficieelMika#7371 (Mika W.)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ZionMediaOfficial/OMM.JS.V1/issues"
+    "url": "https://github.com/OMMediaGroupFileRepos/OMM.JS.V1/issues"
   },
-  "homepage": "https://github.com/ZionMediaOfficial/OMM.JS.V1#readme"
+  "homepage": "https://github.com/OMMediaGroupFileRepos/OMM.JS.V1#readme"
 }
