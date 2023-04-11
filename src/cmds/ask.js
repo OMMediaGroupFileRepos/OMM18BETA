@@ -18,6 +18,10 @@ module.exports = {
                 .setDescription("Enter your question here")
                 .setRequired(true)),
     async execute(client, interaction) {
+
+        console.log(openai.__version__);
+
+
         const question = interaction.options.getString("input"); // haal de vraag op van de gebruiker
         const response = await openai.completions.create({
             engine: "text-davinci-002", // kies het gewenste taalmodel
