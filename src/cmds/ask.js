@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const config = require("../data/config.json");
-const openai = require("openai"); // importeer de OpenAI SDK
+const { openai } = require("openai"); // importeer de OpenAI SDK
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
