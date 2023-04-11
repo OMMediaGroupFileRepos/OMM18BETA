@@ -36,6 +36,7 @@
     "nodemon": "^2.0.21",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
+    "openai": "^3.2.1",
     "peek-readable": "^5.0.0",
     "picomatch": "^2.3.1",
     "pstree.remy": "^1.1.8",
@@ -59,7 +60,6 @@
     "util-deprecate": "^1.0.2",
     "ws": "^8.13.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
