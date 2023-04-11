@@ -19,7 +19,7 @@ module.exports = {
             //.setColor("#1111")
             .setTimestamp()
 
-    await interaction.reply({ embeds: [bericht], ephemeral: true})
+    await interaction.reply({ embeds: [latest], ephemeral: true})
 
 
       exec('bash update.sh')
