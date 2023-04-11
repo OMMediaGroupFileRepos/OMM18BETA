@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
 const { exec } = require('child_process');
 const config = require("../data/config.json");
 
@@ -12,7 +12,15 @@ module.exports = {
         .setDescription("updaten."),
     async execute(client, interaction) {
 
-    await interaction.reply({ content: "Processing update, check updatelogs [latest] for current version.", ephemeral: true})
+      let latest = new EmbedBuilder()
+            .setTitle("Updating the bot...")
+            .setDescription("**The bot is gonna update to a newer version of the code, if available.**\n\n`Execute````/updatelogs [LATEST]````to see what's new!`")
+            .setFooter({ text: config.footer })
+            //.setColor("#1111")
+            .setTimestamp()
+
+    await interaction.reply({ embeds: [bericht], ephemeral: true})
+
 
       exec('bash update.sh')
   },
