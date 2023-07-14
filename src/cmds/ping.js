@@ -13,7 +13,6 @@ module.exports = {
 
         let embed = new EmbedBuilder()
         .setTitle("PONG!")
-        .setImage("https://cdn.pixabay.com/photo/2016/03/31/15/35/bat-1293409_960_720.png")
             .addFields(
                 { name: `${client.user.username}${l.pingCmd_1}`, value: `\`\`\`${Date.now() - interaction.createdTimestamp}ms\`\`\`` },
                 { name: l.pingCmd_2, value: `\`\`\`${Math.round(client.ws.ping)}ms\`\`\`` }

@@ -1,6 +1,6 @@
 {
   "name": "ommjsv1",
-  "version": "0.0.6, APR23",
+  "version": "18.0.7, JUL23",
   "description": "",
   "main": "main.js",
   "LTSCodename": "Ikaros",
@@ -33,7 +33,7 @@
     "lodash.snakecase": "^4.1.1",
     "minimatch": "^3.1.2",
     "ms": "^2.1.3",
-    "nodemon": "^2.0.21",
+    "nodemon": "^2.0.22",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
     "openai": "^3.2.1",
@@ -61,11 +61,12 @@
     "ws": "^8.13.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OMMediaGroupFileRepos/OMM.JS.V1.git"
+    "url": "git+https://github.com/OMMediaGroupFileRepos/OMM18BETA"
   },
   "author": "OfficieelMika#7371 (Mika W.)",
   "license": "ISC",

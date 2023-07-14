@@ -18,9 +18,10 @@ module.exports = {
         const category = config.ticketCat;
 
         var user = interaction.user.username;
-        const userDiscr = interaction.user.tag;
+        const userDiscr = interaction.user.id;
+        const userDiscrName = interaction.user.username;
 
-        const reason = await interaction.options.getString(l.ticketReason);
+        const reason = await interaction.options.getString(l.ticketCreateReason);
 
         var ticketExists = false;
 
@@ -34,7 +35,7 @@ module.exports = {
 
         if (ticketExists == "true") return;
 
-        interaction.guild.channels.create({ name: userDiscr.toLowerCase(), type: ChannelType.GuildText , parent: category}).then(
+        interaction.guild.channels.create({ name: userDiscrName.toLowerCase(), type: ChannelType.GuildText , parent: category}).then(
             (ticketChannel) => {
 
                 ticketChannel.permissionOverwrites.edit(interaction.guild.roles.cache.find(x => x.name === "@everyone"), {
@@ -68,8 +69,8 @@ module.exports = {
                 .setTitle("**__" + l.ticketLogName + "__**")
                 .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
                 .addFields(
-                    {name: l.ticketReason, value: reason},
-                    {name: l.ticketUser, value: userDiscr}
+                    {name: l.ticketReason, value: "*" + reason + "*"},
+                    {name: l.ticketUser, value: `<@${userDiscr}>`}
                 )
                 .setColor("#95B96C")
                 .setFooter({ text: config.footer })
@@ -84,7 +85,7 @@ module.exports = {
 
         var embed = new EmbedBuilder()
             .setTitle("**__" + l.ticketMadeTitle + "__**")
-            .setDescription(`${l.ticketCreateReasonText}: **${reason}**\n${l.ticketCreatedBy}: **${interaction.user.tag}**`)
+            .setDescription(`${l.ticketCreateReasonText}: **${reason}**\n${l.ticketCreatedBy}: <@${interaction.user.id}>`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
             .setColor("#5C8D93")
             .setTimestamp();

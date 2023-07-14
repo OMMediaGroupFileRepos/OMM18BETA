@@ -12,7 +12,7 @@ client.commands = new Collection();
 const cmds = [];
 
 let clientName = config.client;
-var token = clientData[clientName];
+var token = clientData[clientName].login;
 
 var langConf = config.lang;
 const l = require(`./src/lang/${langConf}.json`);

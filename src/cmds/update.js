@@ -21,6 +21,6 @@ module.exports = {
     await interaction.reply({ embeds: [latest], ephemeral: true})
 
 
-      exec('bash update.sh')
+      //exec('bash update.sh')
   },
 };

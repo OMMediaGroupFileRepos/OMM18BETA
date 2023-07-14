@@ -19,18 +19,19 @@ module.exports = {
         const category = config.ticketCat;
         const reason = await interaction.options.getString(l.ticketCloseReason);
 
-        var userDiscr = interaction.user.tag;
+        var userDiscr = interaction.user.username;
+        var executeInTicketCat = "Please execute this command in an ticket category"
 
         if (interaction.channel.parentId == category) {
             interaction.channel.delete();
         } else {
-            await interaction.reply("```diff\n- " + executeInTicketCat + " ```");
+            await interaction.reply({ content: "```diff\n- " + executeInTicketCat + " ```", ephemeral: true});
             return;
         }
 
         var embed = new EmbedBuilder()
             .setTitle("**__Ticket " + interaction.channel.name + "__**")
-            .setDescription(`${l.ticketClosingReason} **${reason}**\n${l.ticketClosedBy} **${interaction.user.tag}**\n${l.ticketMadeBy} **${interaction.channel.name}**`)
+            .setDescription(`${l.ticketClosingReason} **${reason}**\n${l.ticketClosedBy} **${interaction.user.username}**\n${l.ticketMadeBy} **${interaction.channel.name}**`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
             .setColor("#5C8D93")
             .setTimestamp();

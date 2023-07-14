@@ -14,7 +14,13 @@ module.exports = {
             option.setName("update")
             .addChoices(
                 { name: "Latest", value: "lat" },
-
+                { name: "7th", value: "f" },
+                { name: "6th", value: "e" },
+                { name: "5th", value: "d" },
+                { name: "4th", value: "c" },
+                { name: "3th", value: "b" },
+                { name: "2nd", value: "a" },
+                { name: "1st", value: "first" },
             )
                 .setDescription(l.starsDesc)
                 .setRequired(true)),
@@ -25,8 +31,8 @@ module.exports = {
         var bericht = "";
 
         let latest = new EmbedBuilder()
-            .setTitle("Latest update, (" + pkg.version + ")")
-            .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot```\n** **\n```diff\n+ Fixed some styling```\n** **\n```diff\n+ Added Limburgs, Nederlands (Limburg)```\n")
+            .setTitle("Latest update (" + pkg.version + ")")
+            .setDescription("**__What's new?__**\n\n```diff\n+ changed the name back to OMM which stands for OfficieelMikaMedia, now with easy to understand versions, current release: OMM18```\n```Extended maintaining plans will be public soon\n```** **")
             .setFooter({ text: config.footer })
             //.setColor("#1111")
             .setTimestamp()
@@ -63,13 +69,13 @@ module.exports = {
 
             let embedE = new EmbedBuilder()
             .setTitle("Update 6")
-           .setDescription("**__What's new?__**\n\n```diff\n ```\n** **")
+            .setDescription("**__What's new?__**\n\n```diff\n+ /update --> allows you to update the bot trough our reposities```\n** **\n```diff\n+ Fixed styling```\n** **\n```diff\n+ Added Limburgs, Dutch (Limburgs)```\n")
             .setFooter({ text: config.footer })
             .setTimestamp()
 
             let embedF = new EmbedBuilder()
-            .setTitle("Update 1")
-           .setDescription("**__What's new?__**\n\n```diff\n ```\n** **")
+            .setTitle("Update 7")
+            .setDescription("**__What's new?__**\n\n```diff\n+ changed the name back to OMM which stands for OfficieelMikaMedia, now with easy to understand versions, current release: OMM18```\n```+ Extended maintaining plans will be public soon```\n** **")
             .setFooter({ text: config.footer })
             .setTimestamp()
 
@@ -92,7 +98,7 @@ module.exports = {
             .setTimestamp()
 
         if(number == "lat") bericht = latest;
-        if(number == "zero") bericht = embed;
+        if(number == "first") bericht = embed;
         if(number == "a") bericht = embedA;
         if(number == "b") bericht = embedB;
         if(number == "c") bericht = embedC;
