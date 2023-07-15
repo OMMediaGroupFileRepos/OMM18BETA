@@ -17,7 +17,7 @@ const { exec } = require("child_process");
                         .setDescription("Select the repository")
                         .setRequired(true)),
             async execute(client, interaction) {
-        const selectedVersion = interaction.options.getString("version");
+        const selectedVersion = interaction.options.getString("repository");
 
         let repositoryUrl = "";
         let versionName = "";
