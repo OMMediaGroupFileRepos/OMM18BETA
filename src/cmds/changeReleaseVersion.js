@@ -22,10 +22,10 @@ const { exec } = require("child_process");
         let repositoryUrl = "";
         let versionName = "";
         if (selectedVersion === "stable") {
-            repositoryUrl = "git+https://github.com/OMMediaGroupFileRepos/OMM18";
+            repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18";
             versionName = "stable";
         } else if (selectedVersion === "beta") {
-            repositoryUrl = "git+https://github.com/OMMediaGroupFileRepos/OMM18BETA";
+            repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18BETA";
             versionName = "beta";
         }
 
