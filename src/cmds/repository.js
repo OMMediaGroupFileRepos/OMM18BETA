@@ -6,15 +6,15 @@ const { exec } = require("child_process");
         module.exports = {
             category: "information",
             data: new SlashCommandBuilder()
-                .setName("release")
-                .setDescription("iets")
+                .setName("repository")
+                .setDescription("change the update repository to make the bot more like you want")
                 .addStringOption(option =>
-                    option.setName("version")
+                    option.setName("repository")
                         .addChoices(
-                            { name: "stable", value: "stable" },
-                            { name: "beta", value: "beta" },
+                            { name: "Stable", value: "stable" },
+                            { name: "BETA", value: "beta" },
                         )
-                        .setDescription("iets")
+                        .setDescription("Select the repository")
                         .setRequired(true)),
             async execute(client, interaction) {
         const selectedVersion = interaction.options.getString("version");
@@ -23,10 +23,10 @@ const { exec } = require("child_process");
         let versionName = "";
         if (selectedVersion === "stable") {
             repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18";
-            versionName = "stable";
+            versionName = "Stable";
         } else if (selectedVersion === "beta") {
             repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18BETA";
-            versionName = "beta";
+            versionName = "BETA";
         }
 
         // Bijwerken van package.json met de nieuwe repository-URL
@@ -36,12 +36,13 @@ const { exec } = require("child_process");
             const parsedPackageJson = JSON.parse(packageJson);
             parsedPackageJson.repository.url = repositoryUrl;
             await fs.writeFile(packageJsonPath, JSON.stringify(parsedPackageJson, null, 2));
-            console.log("Package.json bijgewerkt met nieuwe repository-URL:", repositoryUrl);
+            console.log("Repository changed to:", versionName);
 
             exec('git remote set-url origin ' + repositoryUrl)
 
             let embed = new EmbedBuilder()
-                .setTitle("Repository veranderd naar " + versionName)
+                .setTitle("Repository has been changed to " + versionName)
+                .setDescription("Update your bot to get the features of the repository")
                 .setFooter({ text: config.footer })
                 .setTimestamp();
 
