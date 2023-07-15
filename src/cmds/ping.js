@@ -18,6 +18,7 @@ module.exports = {
                 { name: l.pingCmd_2, value: `\`\`\`${Math.round(client.ws.ping)}ms\`\`\`` }
             )
             .setFooter({ text: config.footer })
+            .setColor("#80ddd9")
             .setTimestamp()
 
         await interaction.reply({embeds: [embed], ephemeral: true})

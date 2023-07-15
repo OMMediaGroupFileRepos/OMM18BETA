@@ -43,7 +43,11 @@ const { exec } = require("child_process");
             let embed = new EmbedBuilder()
                 .setTitle("Repository has been changed to " + versionName)
                 .setDescription("Update your bot to get the features of the repository")
+                .addFields(
+                    { name: "Use the following command to complete the migration process", value: "```/update```"}
+                )
                 .setFooter({ text: config.footer })
+                .setColor("#4fdd6e")
                 .setTimestamp();
 
             await interaction.reply({ embeds: [embed], ephemeral: true });
