@@ -58,7 +58,13 @@ client.on("interactionCreate", async interaction => {
         await command.execute(client, interaction);
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: "```" + l.defaultErrorMessage + "``", ephemeral: true });
+        let generalErrorEmbed = new EmbedBuilder()
+        .setTitle(`An error occured`)
+                .setDescription("```" + l.defaultErrorMessage + "```")
+                .setFooter({ text: config.footer })
+                .setColor("#a00e10")
+                .setTimestamp();
+        await interaction.reply({ embeds: [generalErrorEmbed], ephemeral: true });
     }
 });
 
@@ -70,13 +76,11 @@ client.on("guildMemberAdd", member => {
             .setFooter({ text: config.footer })
             .setThumbnail(member.displayAvatarURL({ dynamic: true }))
             .setTimestamp();
-    var role = member.guild.roles.cache.get("1087804908880801912");
+    var role = member.guild.roles.cache.get(config.joinRole);
 
-    if (!role) console.log(`Het id ${role} bestaat niet...`);
+    if (!role) return console.log(`Het id ${role} bestaat niet...`);
 
-    member.roles.add(role);
-
-    var channel = member.guild.channels.cache.get("1089130774009229342");
+    var channel = member.guild.channels.cache.get(config.guild);
 
     if (!channel) console.log(`Het kanaalid ${channel} bestaat niet...`);
 

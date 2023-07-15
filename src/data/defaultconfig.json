@@ -10,5 +10,7 @@
     "ticketCat": "id",
     "logging": "name",
     "supportRole": "name",
+    "joinRole": "id",
+    "welcomeChannel": "id",
     "guildName": "name"
 }

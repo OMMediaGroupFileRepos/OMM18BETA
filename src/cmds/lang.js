@@ -41,11 +41,19 @@ module.exports = {
 
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
-            console.log("Taalinstellingen zijn bijgewerkt.");
+            console.log("Language has been changed to " + selectedLang);
+
+            langUpdatedText = "";
+
+            if (selectedLang == "en") langUpdatedText = "Language has been updated to ";
+            if (selectedLang == "nl") langUpdatedText = "De taal is veranderd naar ";
+            if (selectedLang == "nl_li") langUpdatedText = "De taal is veranderd nao ";
+            if (selectedLang == "de") langUpdatedText = "Die Sprache wurde aktualisiert zu ";
 
             let embed = new EmbedBuilder()
-                .setTitle("Language changed to " + taal)
+                .setTitle(langUpdatedText + taal)
                 .setFooter({ text: config.footer })
+                .setColor("#4fdd6e")
                 .setTimestamp();
 
             await interaction.reply({ embeds: [embed], ephemeral: true });
