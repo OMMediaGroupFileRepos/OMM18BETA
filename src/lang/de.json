@@ -52,5 +52,17 @@
     "welcomeMsg_1": "Ein neues Mitglied ist beigetreten!",
     "welcomeMsg_2": "Willkommen zu",
     "WelcomeMsg_3": "Wir wünschen dir eine schöne Zeit!",
-    "watermark_beginning": "Erstellt von "
+    "watermark_beginning": "Erstellt von ",
+    "langUpdatedTo": "The language has been updated to ",
+    "errorRestarting": "[ERROR] There was an error restarting the bot:",
+    "restartingConsoleMsg": "[LOG] Restarting the bot due to changes",
+    "errorChangingConfig": "[ERROR] The bot wasn't able to make changes to its configuration:",
+    "langUpdatedTextConsole": "[UPDATE] The language has been updated to ",
+    "langEditDesc": "Edit the language of the bot",
+    "langOption": "language",
+    "lang": "setlang",
+    "langOptionsDesc": "Choose the language you want to change the bot to",
+    "reviewChannelInvalid": "[FAILED] review channel is invalid",
+    "suggestionChannelInvalid": "[FAILED] suggestions channel is invalid",
+    "ticketTitle": "Ticket"
 }

@@ -16,13 +16,10 @@ module.exports = {
     async execute(client, interaction) {
 
         const category = config.ticketCat;
-
-        var user = interaction.user.username;
         const userDiscr = interaction.user.id;
         const userDiscrName = interaction.user.username;
-
         const reason = await interaction.options.getString(l.ticketCreateReason);
-
+        
         var ticketExists = false;
 
         interaction.guild.channels.cache.forEach(channel => {

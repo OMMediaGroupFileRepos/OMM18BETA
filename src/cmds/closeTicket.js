@@ -19,21 +19,18 @@ module.exports = {
         const category = config.ticketCat;
         const reason = await interaction.options.getString(l.ticketCloseReason);
 
-        var userDiscr = interaction.user.username;
-        var executeInTicketCat = "Please execute this command in an ticket category"
-
         if (interaction.channel.parentId == category) {
             interaction.channel.delete();
         } else {
-            await interaction.reply({ content: "```diff\n- " + executeInTicketCat + " ```", ephemeral: true});
+            await interaction.reply({ content: "```diff\n- " + l.executeInTicketCat + " ```", ephemeral: true});
             return;
         }
 
         var embed = new EmbedBuilder()
-            .setTitle("**__Ticket " + interaction.channel.name + "__**")
+            .setTitle("**__"+ l.ticketTitle + interaction.channel.name + "__**")
             .setDescription(`${l.ticketClosingReason} **${reason}**\n${l.ticketClosedBy} **${interaction.user.username}**\n${l.ticketMadeBy} **${interaction.channel.name}**`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
-            .setColor("#5C8D93")
+            .setColor("#80ddd9") 
             .setTimestamp();
 
         var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name === config.logging);

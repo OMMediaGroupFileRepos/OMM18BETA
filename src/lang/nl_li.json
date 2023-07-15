@@ -51,6 +51,18 @@
     "defaultErrorMessage": "Whoops, er is een fout opgetreden, nöm contac OfficieelMika#7371",
     "welcomeMsg_1": "Neuj lid binnegekome!",
     "welcomeMsg_2": "Welkom in",
+    "welcomeMsg_3": "Veer hòppe det se ein geweldige tied biej os höbs!",
     "watermark_beginning": "Gemaak door ",
-    "welcomeMsg_3": "Veer hòppe det se ein geweldige tied biej os höbs!"
+    "langUpdatedTo": "De taal is bijgewerkt naar ",
+    "errorRestarting": "[FOUT] Er was een fout tijdens het herstarten: ",
+    "restartingConsoleMsg": "[LOG] De bot herstarten om veranderingen te voldoen",
+    "errorChangingConfig": "[FOUT] De bot kon geen veranderingen aanbrengen aan de configuratie: ",
+    "langUpdatedTextConsole": "[UPDATE] De taal is bijgewerkt naar ",
+    "langEditDesc": "Verander de taal van de bot",
+    "langOption": "taal",
+    "lang": "setlang",
+    "langOptionsDesc": "Kies de taal waarin je de bot wilt hebben",
+    "reviewChannelInvalid": "[MISLUKT] het review kanaal bestaat niet",
+    "suggestionChannelInvalid": "[MISLUKT] het suggestie kanaal bestaat niet",
+    "ticketTitle": "Ondersteuningskanaal"
 }

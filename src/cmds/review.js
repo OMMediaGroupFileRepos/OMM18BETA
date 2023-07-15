@@ -30,7 +30,7 @@ module.exports = {
 
         let amount = interaction.options.getString(l.reviewOptionOne);
         let channel = client.channels.cache.get(config.reviewChannel);
-        if (!channel) console.log("[FAILED] review channel is invalid");
+        if (!channel) console.log(l.reviewChannelInvalid);
 
         var msg = interaction.options.getString(l.reviewOptionTwo);
         const stars = await interaction.options.getString(l.reviewOptionOne);

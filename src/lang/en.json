@@ -43,7 +43,7 @@
     "ticketProvidedBy": "Provided by",
     "ticketLogName": "Ticket",
     "ticketCreateReasonDesc": "Fill in why you need support",
-    "executeInTicketCat": "This command only works in the ticket category, please execute it there",
+    "executeInTicketCat": "This command only works in the ticket category, please execute it there.",
     "ticketClosingReason": "Close reason:",
     "ticketClosedBy": "Closed by:",
     "ticketMadeBy": "Created by:",
@@ -52,5 +52,17 @@
     "welcomeMsg_1": "new member joined!",
     "welcomeMsg_2": "Welcome to",
     "WelcomeMsg_3": "We hope you have a great time here!",
-    "watermark_beginning": "Made by "
+    "watermark_beginning": "Made by ",
+    "langUpdatedTo": "The language has been updated to ",
+    "errorRestarting": "[ERROR] There was an error restarting the bot:",
+    "restartingConsoleMsg": "[LOG] Restarting the bot due to changes",
+    "errorChangingConfig": "[ERROR] The bot wasn't able to make changes to its configuration:",
+    "langUpdatedTextConsole": "[UPDATE] The language has been updated to ",
+    "langEditDesc": "Edit the language of the bot",
+    "langOption": "language",
+    "lang": "setlang",
+    "langOptionsDesc": "Choose the language you want to change the bot to",
+    "reviewChannelInvalid": "[FAILED] review channel is invalid",
+    "suggestionChannelInvalid": "[FAILED] suggestions channel is invalid",
+    "ticketTitle": "Ticket"    
 }

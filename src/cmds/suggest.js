@@ -21,7 +21,7 @@ module.exports = {
     async execute(client, interaction) {
 
         let channel = client.channels.cache.get(config.suggestChannel);
-        if (!channel) console.log("[FAILED] suggestions channel is invalid");
+        if (!channel) console.log(l.suggestionChannelInvalid);
 
         let embed = new EmbedBuilder()
             /*.setTitle("This command is not completed yet!")
@@ -40,7 +40,7 @@ module.exports = {
             )
             .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
             .setFooter({ text: config.footer })
-            .setColor("#4C878D")
+            .setColor("#80ddd9")
             .setTimestamp()
 
         await channel.send({ embeds: [embed] })
