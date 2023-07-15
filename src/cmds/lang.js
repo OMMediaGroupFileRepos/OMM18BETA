@@ -9,21 +9,22 @@ const l = require(`../lang/${langConf}.json`);
 module.exports = {
     category: "information",
     data: new SlashCommandBuilder()
-        .setName("lang")
-        .setDescription("iets")
+        .setName(l.lang)
+        .setDescription(l.langEditDesc)
         .addStringOption(option =>
-            option.setName("update")
+            option.setName(l.langOption)
                 .addChoices(
                     { name: "English (EN)", value: "en" },
                     { name: "Nederlands (NL)", value: "nl" },
                     { name: "Limburgs (NL-LI)", value: "nl_li" },
                     { name: "Deutsch (DE)", value: "de" },
+                    { name: "Vlaams (BE-VL)", value: "be_vl" },
                 )
-                .setDescription(l.starsDesc)
+                .setDescription(l.langOptionsDesc)
                 .setRequired(true)),
     async execute(client, interaction) {
-        var taal = "";
-        var number = interaction.options.getString("update");
+        var lang = "";
+        var number = interaction.options.getString(l.langOption);
 
         var selectedLang = "";
 
@@ -31,27 +32,30 @@ module.exports = {
         if (number == "nl") selectedLang = "nl";
         if (number == "nl_li") selectedLang = "nl_li";
         if (number == "de") selectedLang = "de";
+        if (number == "be_vl") selectedLang = "be_vl";
 
-        if (selectedLang == "en") taal = "English";
-        if (selectedLang == "nl") taal = "Nederlands";
-        if (selectedLang == "nl_li") taal = "Limburgs";
-        if (selectedLang == "de") taal = "Deutsch";
+        if (selectedLang == "en") lang = "English";
+        if (selectedLang == "nl") lang = "Nederlands";
+        if (selectedLang == "nl_li") lang = "Limburgs";
+        if (selectedLang == "de") lang = "Deutsch";
+        if (selectedLang == "be_vl") lang = "Vlaams";
 
         config.lang = selectedLang;
 
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
-            console.log("Language has been changed to " + selectedLang);
+            console.log(l.langUpdatedTextConsole + lang);
 
             langUpdatedText = "";
 
-            if (selectedLang == "en") langUpdatedText = "Language has been updated to ";
-            if (selectedLang == "nl") langUpdatedText = "De taal is veranderd naar ";
-            if (selectedLang == "nl_li") langUpdatedText = "De taal is veranderd nao ";
-            if (selectedLang == "de") langUpdatedText = "Die Sprache wurde aktualisiert zu ";
+            if (selectedLang == "en") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl_li") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "de") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "be_vl") langUpdatedText = l.langUpdatedTo;
 
             let embed = new EmbedBuilder()
-                .setTitle(langUpdatedText + taal)
+                .setTitle(langUpdatedText + lang)
                 .setFooter({ text: config.footer })
                 .setColor("#4fdd6e")
                 .setTimestamp();
@@ -61,14 +65,14 @@ module.exports = {
             setTimeout(() => {
                 exec("pm2 restart main.js", (error, stdout, stderr) => {
                     if (error) {
-                        console.error("Er is een fout opgetreden bij het herstarten van de bot met PM2:", error);
+                        console.error(l.errorRestarting, error);
                     } else {
-                        console.log("Bot wordt herstart met PM2.");
+                        console.log(l.restartingConsoleMsg);
                     }
                 });
             }, 3000);
         } catch (error) {
-            console.error("Er is een fout opgetreden bij het bijwerken van het config.json-bestand:", error);
+            console.error(l.errorChangingConfig, error);
         }
     },
 };
