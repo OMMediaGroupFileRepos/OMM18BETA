@@ -38,6 +38,8 @@ const { exec } = require("child_process");
             await fs.writeFile(packageJsonPath, JSON.stringify(parsedPackageJson, null, 2));
             console.log("Package.json bijgewerkt met nieuwe repository-URL:", repositoryUrl);
 
+            exec('git remote set-url origin ' + repositoryUrl)
+
             let embed = new EmbedBuilder()
                 .setTitle("Repository veranderd naar " + versionName)
                 .setFooter({ text: config.footer })
