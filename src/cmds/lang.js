@@ -27,9 +27,9 @@ module.exports = {
                 .setDescription(l.langOptionsDesc)
                 .setRequired(true)),
     async execute(client, interaction) {
+        
         var lang = "";
         var number = interaction.options.getString(l.langOption);
-
         var selectedLang = "";
 
         if (number == "en_us") selectedLang = "en_us";
