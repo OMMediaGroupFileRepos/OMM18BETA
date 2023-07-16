@@ -14,11 +14,15 @@ module.exports = {
         .addStringOption(option =>
             option.setName(l.langOption)
                 .addChoices(
-                    { name: "English (EN)", value: "en" },
+                    { name: "English (United States)", value: "en_us" },
+                    { name: "English (United Kingdom)", value: "en_uk" },
+                    { name: "Deutsch (DE)", value: "de" },
                     { name: "Nederlands (NL)", value: "nl" },
                     { name: "Limburgs (NL-LI)", value: "nl_li" },
-                    { name: "Deutsch (DE)", value: "de" },
+                    { name: "Brabants (NL-BR)", value: "nl_br" },
                     { name: "Vlaams (BE-VL)", value: "be_vl" },
+                    { name: "French (FR)", value: "fr" },
+                    { name: "Ukrainian (UKR)", value: "ukr" },
                 )
                 .setDescription(l.langOptionsDesc)
                 .setRequired(true)),
@@ -48,8 +52,7 @@ module.exports = {
         if (selectedLang == "ukr") lang = "Українська";
         if (selectedLang == "fr") lang = "Français";
 
-        config.lang = selectedLang;
-
+        config.lang = selectedLan
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
             console.log(l.langUpdatedTextConsole + lang);
