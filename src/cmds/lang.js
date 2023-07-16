@@ -28,17 +28,25 @@ module.exports = {
 
         var selectedLang = "";
 
-        if (number == "en") selectedLang = "en";
+        if (number == "en_us") selectedLang = "en_us";
+        if (number == "en_uk") selectedLang = "en_uk";
         if (number == "nl") selectedLang = "nl";
         if (number == "nl_li") selectedLang = "nl_li";
         if (number == "de") selectedLang = "de";
         if (number == "be_vl") selectedLang = "be_vl";
+        if (number == "nl_br") selectedLang = "nl_br";
+        if (number == "ukr") selectedLang = "ukr";
+        if (number == "fr") selectedLang = "fr";
 
-        if (selectedLang == "en") lang = "English";
+        if (selectedLang == "en_us") lang = "English (US)";
+        if (selectedLang == "en_uk") lang = "English (UK)";
         if (selectedLang == "nl") lang = "Nederlands";
         if (selectedLang == "nl_li") lang = "Limburgs";
         if (selectedLang == "de") lang = "Deutsch";
         if (selectedLang == "be_vl") lang = "Vlaams";
+        if (selectedLang == "nl_br") lang = "Brabants";
+        if (selectedLang == "ukr") lang = "Українська";
+        if (selectedLang == "fr") lang = "Français";
 
         config.lang = selectedLang;
 
@@ -48,11 +56,15 @@ module.exports = {
 
             langUpdatedText = "";
 
-            if (selectedLang == "en") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "en_us") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "en_uk") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "nl") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "nl_li") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "de") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "be_vl") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl_br") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "ukr") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "fr") langUpdatedText = l.langUpdatedTo;
 
             let embed = new EmbedBuilder()
                 .setTitle(langUpdatedText + lang)
