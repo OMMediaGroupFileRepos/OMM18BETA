@@ -60,7 +60,7 @@
     "langUpdatedTextConsole": "[MISE À JOUR] La langue a été mise à jour vers ",
     "langEditDesc": "Changez la langue du bot",
     "langOption": "langue",
-    "lang": "choisirlangue",
+    "lang": "setlang",
     "langOptionsDesc": "Choisissez la langue dans laquelle vous souhaitez avoir le bot",
     "reviewChannelInvalid": "[ÉCHEC] le canal d'évaluation n'existe pas",
     "suggestionChannelInvalid": "[ÉCHEC] le canal de suggestion n'existe pas",

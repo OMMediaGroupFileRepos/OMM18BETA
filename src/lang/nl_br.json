@@ -60,7 +60,7 @@
     "langUpdatedTextConsole": "[UPDATE] De taal is bèijgewèrkt nao ",
     "langEditDesc": "Veranger de taol van de bot",
     "langOption": "taol",
-    "lang": "settaol",
+    "lang": "setlang",
     "langOptionsDesc": "Kies de taol waorin ge de bot wilt hebbe",
     "reviewChannelInvalid": "[MISLUKT] 't review-kanaol bestaot nie",
     "suggestionChannelInvalid": "[MISLUKT] 't suggestie-kanaol bestaot nie",

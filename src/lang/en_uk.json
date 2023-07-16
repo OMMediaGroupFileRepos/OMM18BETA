@@ -60,7 +60,7 @@
     "langUpdatedTextConsole": "[UPDATE] The language has been updated to ",
     "langEditDesc": "Change the language of the bot",
     "langOption": "language",
-    "lang": "setlanguage",
+    "lang": "setlang",
     "langOptionsDesc": "Choose the language in which you want to have the bot",
     "reviewChannelInvalid": "[FAILED] The review channel does not exist",
     "suggestionChannelInvalid": "[FAILED] The suggestion channel does not exist",

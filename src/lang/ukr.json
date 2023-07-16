@@ -60,7 +60,7 @@
     "langUpdatedTextConsole": "[ОНОВЛЕННЯ] Мова оновлена до ",
     "langEditDesc": "Змінити мову бота",
     "langOption": "мова",
-    "lang": "встановитимову",
+    "lang": "setlang",
     "langOptionsDesc": "Виберіть мову, в якій ви хочете мати бота",
     "reviewChannelInvalid": "[НЕВДАЧА] Канал оглядів не існує",
     "suggestionChannelInvalid": "[НЕВДАЧА] Канал пропозицій не існує",
