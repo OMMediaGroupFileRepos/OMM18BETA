@@ -25,7 +25,7 @@
     "helpDesc": "Permet de voir quels commandes sont disponibles",
     "notAvailable": "Cette option n'est pas disponible pour le moment, peut-être dans une prochaine mise à jour !",
     "updateLogs": "journal-des-mises-à-jour",
-    "updateLogsDesc": "Consultez ce qui s'est passé lors des mises à jour précédentes (le journal est disponible uniquement en anglais)",
+    "updateLogsDesc": "consultez ce qui s'est passé lors des mises à jour précédentes (le journal est disponible uniquement en anglais)",
     "ticketCreate": "ticket",
     "ticketCreateDesc": "Permet de créer un canal d'assistance",
     "ticketClose": "fermer",
