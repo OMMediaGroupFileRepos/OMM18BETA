@@ -59,6 +59,8 @@ module.exports = {
 
             langUpdatedText = "";
 
+            l = selectedLang;
+
             if (selectedLang == "en_us") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "en_uk") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "nl") langUpdatedText = l.langUpdatedTo;
