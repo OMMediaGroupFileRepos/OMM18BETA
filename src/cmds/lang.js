@@ -58,8 +58,6 @@ module.exports = {
             console.log(l.langUpdatedTextConsole + lang);
 
             langUpdatedText = "";
-            const newL = require(`../lang/${selectedLang}.json`);
-            console.log(selectedLang)
 
             if (selectedLang == "en_us") langUpdatedText = newL.langUpdatedTo;
             if (selectedLang == "en_uk") langUpdatedText = newL.langUpdatedTo;
