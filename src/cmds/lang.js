@@ -4,9 +4,7 @@ const config = require("../data/config.json");
 const { exec } = require("child_process");
 
 var langConf = config.lang;
-var selectedLang = "";
 const l = require(`../lang/${langConf}.json`);
-const newL = require(`../lang/${selectedLang}.json`);
 
 module.exports = {
     category: "information",
@@ -32,6 +30,7 @@ module.exports = {
         
         var lang = "";
         var number = interaction.options.getString(l.langOption);
+        var selectedLang = "";
 
         if (number == "en_us") selectedLang = "en_us";
         if (number == "en_uk") selectedLang = "en_uk";
@@ -59,6 +58,7 @@ module.exports = {
             console.log(l.langUpdatedTextConsole + lang);
 
             langUpdatedText = "";
+            const newL = require(`../lang/${selectedLang}.json`);
 
             if (selectedLang == "en_us") langUpdatedText = newL.langUpdatedTo;
             if (selectedLang == "en_uk") langUpdatedText = newL.langUpdatedTo;
