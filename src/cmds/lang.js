@@ -52,14 +52,13 @@ module.exports = {
         if (selectedLang == "ukr") lang = "Українська";
         if (selectedLang == "fr") lang = "Français";
 
-        config.lang = selectedLan
+        config.lang = selectedLang;
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
             console.log(l.langUpdatedTextConsole + lang);
 
             langUpdatedText = "";
-
-            l = selectedLang;
+            var l = config.lang;
 
             if (selectedLang == "en_us") langUpdatedText = l.langUpdatedTo;
             if (selectedLang == "en_uk") langUpdatedText = l.langUpdatedTo;
