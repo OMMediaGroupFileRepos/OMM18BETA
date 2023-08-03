@@ -52,22 +52,24 @@ module.exports = {
         if (selectedLang == "ukr") lang = "Українська";
         if (selectedLang == "fr") lang = "Français";
 
-        config.lang = selectedLang;
+        var langConf = selectedLang;
+        const l = require(`../lang/${langConf}.json`);
+
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
             console.log(l.langUpdatedTextConsole + lang);
 
             langUpdatedText = "";
 
-            if (selectedLang == "en_us") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "en_uk") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "nl") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "nl_li") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "de") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "be_vl") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "nl_br") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "ukr") langUpdatedText = newL.langUpdatedTo;
-            if (selectedLang == "fr") langUpdatedText = newL.langUpdatedTo;
+            if (selectedLang == "en_us") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "en_uk") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl_li") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "de") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "be_vl") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "nl_br") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "ukr") langUpdatedText = l.langUpdatedTo;
+            if (selectedLang == "fr") langUpdatedText = l.langUpdatedTo;
 
             let embed = new EmbedBuilder()
                 .setTitle(langUpdatedText + lang)
