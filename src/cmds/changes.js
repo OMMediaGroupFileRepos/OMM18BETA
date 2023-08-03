@@ -20,6 +20,7 @@ module.exports = {
             const commitMessage = commitInfo.split('\n\n')[1];
             const commitTitle = commitInfo.split('\n\n')[0];
             const commitDate = commitInfo.split('\n\n')[2];
+            if(!commitDate) commitDate == "Not given."
 
             const change = {
                 title: commitTitle,
