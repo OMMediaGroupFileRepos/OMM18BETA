@@ -17,7 +17,7 @@ module.exports = {
 
             for (const commitHash of commitHashes) {
                 const commitInfo = exec(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
-                const commitMessage = commitInfo.split('\n\n')[2]; // Haal alleen het commitbericht op
+                const commitMessage = commitInfo.split('\n\n')[1]; // Haal alleen het commitbericht op
                 commitTitle = commitInfo.split('\n\n')[1];
                 const commitDate = commitInfo.split('\n\n')[0]; // Haal alleen de datum op
 
