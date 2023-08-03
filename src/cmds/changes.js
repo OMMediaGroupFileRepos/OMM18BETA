@@ -18,7 +18,11 @@ module.exports = {
 
             for (const commitHash of commitHashes) {
                 const commitInfo = execSync(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
-                formattedMessages += commitInfo + '\n\n';
+                const commitMessage = commitInfo.split('\n\n')[1]; // Haal alleen het commitbericht op
+                const commitDate = commitInfo.split('\n\n')[0]; // Haal alleen de datum op
+
+                formattedMessages += "```" + commitDate + "```\n";
+                formattedMessages += commitMessage + '\n\n';
             }
 
             return formattedMessages.trim() || "Geen updates beschikbaar";
@@ -28,7 +32,7 @@ module.exports = {
 
         let embed = new EmbedBuilder()
             .setTitle("PONG!")
-            .setDescription("```" + updates + "```")
+            .setDescription(updates)
             .setFooter({ text: config.footer })
             .setColor("#80ddd9")
             .setTimestamp()
