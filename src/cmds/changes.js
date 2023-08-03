@@ -29,18 +29,20 @@ module.exports = {
                 formattedMessages.push(change);
             }
 
-            return formattedMessages.length > 0 ? formattedMessages : [{ title: "No content available", value: "" }];
-        }
-
-        const changes = getFormattedCommitMessages();
-
-        let embed = new EmbedBuilder()
+            let embed = new EmbedBuilder()
             .setTitle(commitDate)
-            .setDescription(changes + "\n\n**Notice,** ***you may already installed this update.***")
+            .addFields(
+                { name: commitTitle, value: commitMessage },
+        )
             .setFooter({ text: config.footer })
             .setColor("#80ddd9")
             .setTimestamp()
 
-        await interaction.reply({ embeds: [embed], ephemeral: true })
+         interaction.reply({ embeds: [embed], ephemeral: true })
+
+            //return formattedMessages.length > 0 ? formattedMessages : [{ title: "No content available", value: "" }];
+        }
+
+        //const changes = getFormattedCommitMessages();
     },
 };
