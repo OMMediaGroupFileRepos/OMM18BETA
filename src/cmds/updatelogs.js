@@ -14,6 +14,7 @@ module.exports = {
             option.setName("update")
             .addChoices(
                 { name: "Latest", value: "lat" },
+                { name: "8th", value: "g" },
                 { name: "7th", value: "f" },
                 { name: "6th", value: "e" },
                 { name: "5th", value: "d" },
@@ -32,7 +33,7 @@ module.exports = {
 
         let latest = new EmbedBuilder()
             .setTitle("Latest update (" + pkg.version + ")")
-            .setDescription("**__What's new?__**\n\n```diff\n+ changed the name back to OMM which stands for OfficieelMikaMedia, now with easy to understand versions, current release: OMM18```\n```Extended maintaining plans will be public soon\n```** **")
+            .setDescription("**__What's new?__**\n\n```diff\nAdded the following languages:\n+ Vlaams (Belgium)\n+ French (France)\n+ Brabants (Netherlands)\n+ Ukrainian (Ukraine)\n```\n```diff\n** **")
             .setFooter({ text: config.footer })
             //.setColor("#1111")
             .setTimestamp()
@@ -75,13 +76,13 @@ module.exports = {
 
             let embedF = new EmbedBuilder()
             .setTitle("Update 7")
-            .setDescription("**__What's new?__**\n\n```diff\n+ changed the name back to OMM which stands for OfficieelMikaMedia, now with easy to understand versions, current release: OMM18```\n```+ Extended maintaining plans will be public soon```\n** **")
+            .setDescription("**__What's new?__**\n\n```diff\n+ Changed versions back to an easy to understand name```\n```+ Extended maintaining plans will be public soon```\n** **")
             .setFooter({ text: config.footer })
             .setTimestamp()
 
             let embedG = new EmbedBuilder()
-            .setTitle("Update 1")
-           .setDescription("**__What's new?__**\n\n```diff\n ```\n** **")
+            .setTitle("Update 8")
+           .setDescription("**__What's new?__**\n\n```diff\nAdded the following languages:\n+ Vlaams (Belgium)\n+ French (France)\n+ Brabants (Netherlands)\n+ Ukrainian (Ukraine)\n```\n```diff\n** **")
             .setFooter({ text: config.footer })
             .setTimestamp()
 
