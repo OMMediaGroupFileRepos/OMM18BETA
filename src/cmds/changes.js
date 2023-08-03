@@ -29,17 +29,17 @@ module.exports = {
 
             formattedMessages.push(change);
         }
-
+        for (const change of formattedMessages) {
         let embed = new EmbedBuilder()
-            .setTitle("Recent Changes")
+            .setTitle(change.date)
+            .addFields(
+                { name: change.title, value: change.description }
+        )
             .setColor("#80ddd9")
+            .setFooter({ text: config.footer })
             .setTimestamp();
 
-        for (const change of formattedMessages) {
-            embed.addField(change.date, `**${change.title}**\n${change.description}`);
         }
-
-        embed.setFooter({ text: config.footer });
 
         await interaction.reply({ embeds: [embed], ephemeral: true });
     },
