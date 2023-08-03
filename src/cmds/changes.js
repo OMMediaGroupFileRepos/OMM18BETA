@@ -12,25 +12,35 @@ module.exports = {
         .setDescription(l.pingDesc),
     async execute(client, interaction) {
 
-            const commitHashes = exec('git log --pretty=format:"%H" origin/main..HEAD').toString().trim().split('\n');
-            let formattedMessages = [];
+        const commitHashes = exec('git log --pretty=format:"%H" origin/main..HEAD').toString().trim().split('\n');
+        let formattedMessages = [];
 
-            for (const commitHash of commitHashes) {
-                const commitInfo = exec(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
-                const commitMessage = commitInfo.split('\n\n')[1]; // Haal alleen het commitbericht op
-                commitTitle = commitInfo.split('\n\n')[1];
-                const commitDate = commitInfo.split('\n\n')[0]; // Haal alleen de datum op
+        for (const commitHash of commitHashes) {
+            const commitInfo = exec(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
+            const commitMessage = commitInfo.split('\n\n')[1];
+            const commitTitle = commitInfo.split('\n\n')[0];
+            const commitDate = commitInfo.split('\n\n')[2];
 
-                let embed = new EmbedBuilder()
-                .setTitle(commitDate)
-                .addFields(
-                    { name: commitTitle, value: commitMessage },
-            )
-                .setFooter({ text: config.footer })
-                .setColor("#80ddd9")
-                .setTimestamp()
-    
-             interaction.reply({ embeds: [embed], ephemeral: true })
-            }
+            const change = {
+                title: commitTitle,
+                date: commitDate,
+                description: commitMessage
+            };
+
+            formattedMessages.push(change);
+        }
+
+        let embed = new EmbedBuilder()
+            .setTitle("Recent Changes")
+            .setColor("#80ddd9")
+            .setTimestamp();
+
+        for (const change of formattedMessages) {
+            embed.addField(change.date, `**${change.title}**\n${change.description}`);
+        }
+
+        embed.setFooter({ text: config.footer });
+
+        await interaction.reply({ embeds: [embed], ephemeral: true });
     },
 };
