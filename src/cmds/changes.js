@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const config = require("../data/config.json");
-const { execSync } = require("child_process");
+const { exec } = require("child_process");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
@@ -13,11 +13,11 @@ module.exports = {
     async execute(client, interaction) {
 
         function getFormattedCommitMessages() {
-            const commitHashes = execSync('git log --pretty=format:"%H" origin/main..HEAD').toString().trim().split('\n');
+            const commitHashes = exec('git log --pretty=format:"%H" origin/main..HEAD').toString().trim().split('\n');
             let formattedMessages = [];
 
             for (const commitHash of commitHashes) {
-                const commitInfo = execSync(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
+                const commitInfo = exec(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
                 const commitMessage = commitInfo.split('\n\n')[1]; // Haal alleen het commitbericht op
                 const commitDate = commitInfo.split('\n\n')[0]; // Haal alleen de datum op
 
@@ -29,14 +29,14 @@ module.exports = {
                 formattedMessages.push(change);
             }
 
-            return formattedMessages.length > 0 ? formattedMessages : [{ title: "Geen updates beschikbaar", value: "" }];
+            return formattedMessages.length > 0 ? formattedMessages : [{ title: "No content available", value: "" }];
         }
 
-        const updates = getFormattedCommitMessages();
+        const changes = getFormattedCommitMessages();
 
         let embed = new EmbedBuilder()
-            .setTitle("PONG!")
-            .setDescription(updates + "\n\n**Notice,** ***you may already installed this update.***")
+            .setTitle(commitDate)
+            .setDescription(changes + "\n\n**Notice,** ***you may already installed this update.***")
             .setFooter({ text: config.footer })
             .setColor("#80ddd9")
             .setTimestamp()
