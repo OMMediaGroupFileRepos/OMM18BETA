@@ -18,7 +18,7 @@ module.exports = {
         for (const commitHash of commitHashes) {
             const commitInfo = exec(`git log -1 --pretty="format:%ad%n%B" --date="format:%A %d %B at %H:%M" ${commitHash}`).toString();
             const commitTitle = commitInfo.split('\n\n')[0];
-            const commitDate = commitInfo.split('\n\n')[2];
+            const commitDate = commitInfo.split('\n\n')[1];
 
             const change = {
                 title: commitTitle,
