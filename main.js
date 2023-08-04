@@ -48,6 +48,10 @@ for (const file of files) {
 
 }
 
+if (!fs.existsSync("../src/custom")) {
+    fs.mkdirSync("../src/custom");
+}
+
 const customCmdsPath = path.join(__dirname, "src/custom");
 const customCmdFiles = fs.readdirSync("./src/custom/").filter(file => file.endsWith(".js"));
 
