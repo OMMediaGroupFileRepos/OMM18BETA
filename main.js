@@ -10,6 +10,7 @@ const clientData = require("../data/clients.json");
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.MessageContent] });
 client.commands = new Collection();
 const cmds = [];
+const customCmds = [];
 
 let clientName = config.client;
 var token = clientData[clientName].login;
@@ -55,7 +56,7 @@ for (const file of files) {
     const customCommand = require(customFilePath);
 
     client.commands.set(customCommand.data.name, command);
-    cmds.push(customCommand.data.toJSON());
+    customCmds.push(customCommand.data.toJSON());
 
     console.log(`[CUSTOM] ${customCommand.data.name}`);
 
