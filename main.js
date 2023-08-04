@@ -51,7 +51,7 @@ const customCmdsPath = path.join(__dirname, "src/custom");
 const customCmdFiles = fs.readdirSync("./src/custom/").filter(file => file.endsWith(".js"));
 
 for (const file of files) {
-    const filePath = path.join(cmdsPath, file);
+    const filePath = path.join(customCmdsPath, customCmdFiles);
     const customCommand = require(filePath);
 
     client.commands.set(customCommand.data.name, command);
