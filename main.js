@@ -51,7 +51,7 @@ for (const file of files) {
 const customCmdsPath = path.join(__dirname, "src/custom");
 const customCmdFiles = fs.readdirSync("./src/custom/").filter(file => file.endsWith(".js"));
 
-for (const file of files) {
+for (const file of customCmdFiles) {
     const customFilePath = path.join(customCmdsPath, customCmdFiles);
     const customCommand = require(customFilePath);
 
