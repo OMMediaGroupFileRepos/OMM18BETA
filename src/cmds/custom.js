@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageEmbed } = require("discord.js");
 const fs = require("fs");
 const config = require("../data/config.json");
 
@@ -21,6 +21,11 @@ module.exports = {
         const code = interaction.options.getString("code");
 
         try {
+            // Controleer of de src/custom map bestaat, zo niet, maak deze dan aan
+            if (!fs.existsSync("./src/custom")) {
+                fs.mkdirSync("./src/custom");
+            }
+
             const filePath = `./src/custom/${command}.js`;
 
             // Controleer of het commando al bestaat
@@ -34,13 +39,10 @@ module.exports = {
             // Voer de code uit de customCommands.js bestand opnieuw uit (optioneel)
             require(filePath);
 
-            // Herstart de bot met reboot.sh script
-            exec("bash reboot.sh");
-
-            interaction.reply({ content: `Custom command "${command}" added successfully. The bot will be restarted.`, ephemeral: true });
+            interaction.reply({ content: `Custom command "${command}" added successfully.`, ephemeral: true });
         } catch (error) {
             console.error(error);
-            interaction.reply({ content: "Failed to add the custom command.", ephemeral: true });
+            interaction.reply({ content: "Failed to add your custom command: " + command, ephemeral: true });
         }
     },
 };
