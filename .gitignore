@@ -2,3 +2,5 @@ node_modules/
 src/data/config.json
 src/cmds/say.js
 src/temp
+src/custom/*
+!src/custom/
