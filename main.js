@@ -38,8 +38,8 @@ if (!fs.existsSync("./src/custom")) {
     fs.mkdirSync("./src/custom");
 }
 
-const cmdsPath = path.join(__dirname, "src/cmds", "src/custom");
-const files = fs.readdirSync("./src/cmds/", "./src/custom").filter(file => file.endsWith(".js"));
+const cmdsPath = path.join(__dirname, "src/cmds");
+const files = fs.readdirSync("./src/cmds/").filter(file => file.endsWith(".js"));
 
 for (const file of files) {
     const filePath = path.join(cmdsPath, file);
