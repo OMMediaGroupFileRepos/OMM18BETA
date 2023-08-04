@@ -22,11 +22,11 @@ module.exports = {
 
         try {
             // Controleer of de src/custom map bestaat, zo niet, maak deze dan aan
-            if (!fs.existsSync("./src/custom")) {
-                fs.mkdirSync("./src/custom");
+            if (!fs.existsSync("../src/custom")) {
+                fs.mkdirSync("../src/custom");
             }
 
-            const filePath = `./src/custom/${command}.js`;
+            const filePath = `../src/custom/${command}.js`;
 
             // Controleer of het commando al bestaat
             if (fs.existsSync(filePath)) {
