@@ -47,6 +47,20 @@ for (const file of files) {
 
 }
 
+const customCmdsPath = path.join(__dirname, "src/custom");
+const customCmdFiles = fs.readdirSync("./src/custom/").filter(file => file.endsWith(".js"));
+
+for (const file of files) {
+    const filePath = path.join(cmdsPath, file);
+    const customCommand = require(filePath);
+
+    client.commands.set(customCommand.data.name, command);
+    cmds.push(customCommand.data.toJSON());
+
+    console.log(`[CUSTOM] ${customCommand.data.name}`);
+
+}
+
 client.on("interactionCreate", async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
