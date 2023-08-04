@@ -48,8 +48,8 @@ for (const file of files) {
 
 }
 
-if (!fs.existsSync("../src/custom")) {
-    fs.mkdirSync("../src/custom");
+if (!fs.existsSync("./src/custom")) {
+    fs.mkdirSync("./src/custom");
 }
 
 const customCmdsPath = path.join(__dirname, "src/custom");
