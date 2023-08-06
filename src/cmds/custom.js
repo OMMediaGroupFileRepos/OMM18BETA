@@ -26,7 +26,7 @@ module.exports = {
              //   fs.mkdirSync("./src/custom");
             //}
 
-            const filePath = `./src/cmds/${command}.js`;
+            const filePath = `../src/cmds/${command}.js`;
 
             // Controleer of het commando al bestaat
             if (fs.existsSync(filePath)) {
@@ -37,7 +37,7 @@ module.exports = {
             fs.writeFileSync(filePath, code);
 
             // Voer de code uit de customCommands.js bestand opnieuw uit (optioneel)
-            require(filePath);
+           // require(filePath);
 
             interaction.reply({ content: `Custom command "${command}" added successfully.`, ephemeral: true });
         } catch (error) {
