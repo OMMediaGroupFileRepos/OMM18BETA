@@ -26,7 +26,7 @@ module.exports = {
              //   fs.mkdirSync("./src/custom");
             //}
 
-            const filePath = `../src/cmds/${command}.js`;
+            const filePath = `./src/cmds/${command}.js`;
 
             // Controleer of het commando al bestaat
             if (fs.existsSync(filePath)) {
