@@ -1,8 +1,9 @@
-const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const config = require("../data/config.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "general",
@@ -40,7 +41,7 @@ module.exports = {
             )
             .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
             .setFooter({ text: config.footer })
-            .setColor("#80ddd9")
+            .setColor(embeds.color.suggestion)
             .setTimestamp()
 
         await channel.send({ embeds: [embed] })

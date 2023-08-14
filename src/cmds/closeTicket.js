@@ -3,6 +3,7 @@ const config = require("../data/config.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "moderation",
@@ -30,7 +31,7 @@ module.exports = {
             .setTitle("**__"+ l.ticketTitle + interaction.channel.name + "__**")
             .setDescription(`${l.ticketClosingReason} **${reason}**\n${l.ticketClosedBy} **${interaction.user.username}**\n${l.ticketMadeBy} **${interaction.channel.name}**`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
-            .setColor("#80ddd9") 
+            .setColor(embeds.color.success) 
             .setTimestamp();
 
         var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name === config.logging);

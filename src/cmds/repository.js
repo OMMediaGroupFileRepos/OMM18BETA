@@ -1,32 +1,40 @@
 const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const config = require("../data/config.json");
+const embeds = require(`../data/embedSettings.json`);
 const fs = require("fs").promises;
 const { exec } = require("child_process");
+
+var langConf = config.lang;
+const l = require(`../lang/${langConf}.json`);
 
         module.exports = {
             category: "information",
             data: new SlashCommandBuilder()
-                .setName("repository")
-                .setDescription("change the update repository to make the bot more like you want")
+                .setName(l.repository)
+                .setDescription(l.repoDesc)
                 .addStringOption(option =>
-                    option.setName("repository")
+                    option.setName(l.repository)
                         .addChoices(
-                            { name: "Stable", value: "stable" },
-                            { name: "BETA", value: "beta" },
+                            { name: l.stable, value: "stable" },
+                            { name: l.beta, value: "beta" },
+                            { name: l.extra, value: "extra"},
                         )
-                        .setDescription("Select the repository")
+                        .setDescription(l.selectRepo)
                         .setRequired(true)),
             async execute(client, interaction) {
-        const selectedVersion = interaction.options.getString("repository");
+        const selectedVersion = interaction.options.getString(l.repository);
 
         let repositoryUrl = "";
         let versionName = "";
         if (selectedVersion === "stable") {
             repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18";
-            versionName = "Stable";
+            versionName = l.stable;
         } else if (selectedVersion === "beta") {
             repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18BETA";
-            versionName = "BETA";
+            versionName = l.beta;
+        } else if (selectedVersion === "extra") {
+            repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18BETA";
+            versionName = l.extra;
         }
 
         // Bijwerken van package.json met de nieuwe repository-URL
@@ -41,13 +49,13 @@ const { exec } = require("child_process");
             exec('git remote set-url origin ' + repositoryUrl)
 
             let embed = new EmbedBuilder()
-                .setTitle("Repository has been changed to " + versionName)
-                .setDescription("Update your bot to get the features of the repository")
+                .setTitle(l.repoChanged + versionName)
+                .setDescription(l.updateBotRepo)
                 .addFields(
-                    { name: "Use the following command to complete the migration process", value: "```/update```"}
+                    { name: l.completeMigration, value: "```/update```"}
                 )
                 .setFooter({ text: config.footer })
-                .setColor("#4fdd6e")
+                .setColor(embeds.color.success)
                 .setTimestamp();
 
             await interaction.reply({ embeds: [embed], ephemeral: true });

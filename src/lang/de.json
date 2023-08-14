@@ -64,5 +64,18 @@
     "langOptionsDesc": "Choose the language you want to change the bot to",
     "reviewChannelInvalid": "[FAILED] review channel is invalid",
     "suggestionChannelInvalid": "[FAILED] suggestions channel is invalid",
-    "ticketTitle": "Ticket"
+    "ticketTitle": "Ticket",
+    "regCmds": "[DONE] Registered slash commands",
+    "load": "[LOADED]",
+    "done": "[DONE]",
+    "completeMigration": "Use the following command to complete the migration process",
+    "updateBotRepo": "Update your bot to get the features of the repository",
+    "repoChanged": "Repository has been changed to ",
+    "selectRepo": "Select the repository",
+    "repository": "repository",
+    "repoDesc": "change the update repository to make the bot more like you want",
+    "stable": "Stable",
+    "beta": "BETA",
+    "extra": "Extra",
+    "updateLogsSelect": "update"
 }

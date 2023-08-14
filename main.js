@@ -3,6 +3,7 @@ const { REST } = require("@discordjs/rest");
 const path = require("node:path");
 const fs = require("node:fs");
 const pkg = require("./package.json");
+const embeds = require(`./src/data/embedSettings.json`);
 
 const config = require("./src/data/config.json");
 const clientData = require("../data/clients.json");
@@ -29,7 +30,7 @@ client.once("ready", () => {
 
     const rest = new REST({ version: 10 }).setToken(token);
     rest.put(Routes.applicationGuildCommands(id, guild), { body: cmds })
-        .then(() => console.log(`[DONE] registered slash commands`))
+        .then(() => console.log(l.regCmds))
         .catch(console.error);
 
 });
@@ -48,7 +49,7 @@ for (const file of files) {
     client.commands.set(command.data.name, command);
     cmds.push(command.data.toJSON());
 
-    console.log(`[LOADED] ${command.data.name}`);
+    console.log(`${l.load} ${command.data.name}`);
 
 }
 /*
@@ -81,7 +82,7 @@ client.on("interactionCreate", async interaction => {
         .setTitle(`An error occured`)
                 .setDescription("```" + l.defaultErrorMessage + "```")
                 .setFooter({ text: config.footer })
-                .setColor("#a00e10")
+                .setColor(embeds.color.unknownError)
                 .setTimestamp();
         await interaction.reply({ embeds: [generalErrorEmbed], ephemeral: true });
     }

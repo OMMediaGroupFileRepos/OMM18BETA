@@ -4,6 +4,7 @@ const { exec } = require("child_process");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "information",
@@ -31,7 +32,7 @@ module.exports = {
         let embed = new EmbedBuilder()
             .setTitle(change.date)
             .setDescription(change.title)
-            .setColor("#80ddd9")
+            .setColor(embeds.color.default)
             .setFooter({ text: config.footer })
             .setTimestamp();
 

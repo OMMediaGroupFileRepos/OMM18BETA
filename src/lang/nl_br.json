@@ -64,5 +64,18 @@
     "langOptionsDesc": "Kies de taol waorin ge de bot wilt hebbe",
     "reviewChannelInvalid": "[MISLUKT] 't review-kanaol bestaot nie",
     "suggestionChannelInvalid": "[MISLUKT] 't suggestie-kanaol bestaot nie",
-    "ticketTitle": "Ondersteuningskanaol"
+    "ticketTitle": "Ondersteuningskanaol",
+    "regCmds": "[DONE] Registered slash commands",
+    "load": "[LOADED]",
+    "done": "[DONE]",
+    "completeMigration": "Use the following command to complete the migration process",
+    "updateBotRepo": "Update your bot to get the features of the repository",
+    "repoChanged": "Repository has been changed to ",
+    "selectRepo": "Select the repository",
+    "repository": "repository",
+    "repoDesc": "change the update repository to make the bot more like you want",
+    "stable": "Stable",
+    "beta": "BETA",
+    "extra": "Extra",
+    "updateLogsSelect": "update"
     }

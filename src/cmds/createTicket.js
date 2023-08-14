@@ -3,6 +3,7 @@ const config = require("../data/config.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "support",
@@ -69,7 +70,7 @@ module.exports = {
                     {name: l.ticketReason, value: "*" + reason + "*"},
                     {name: l.ticketUser, value: `<@${userDiscr}>`}
                 )
-                .setColor("#95B96C")
+                .setColor(embeds.color.default)
                 .setFooter({ text: config.footer })
                 .setTimestamp()
                 
@@ -84,7 +85,7 @@ module.exports = {
             .setTitle("**__" + l.ticketMadeTitle + "__**")
             .setDescription(`${l.ticketCreateReasonText}: **${reason}**\n${l.ticketCreatedBy}: <@${interaction.user.id}>`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
-            .setColor("#5C8D93")
+            .setColor(embeds.color.success)
             .setTimestamp();
 
         var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name === config.logging);

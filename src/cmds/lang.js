@@ -52,9 +52,6 @@ module.exports = {
         if (selectedLang == "ukr") lang = "Українська";
         if (selectedLang == "fr") lang = "Français";
 
-        var langConf = selectedLang;
-        const l = require(`../lang/${langConf}.json`);
-
         try {
             await fs.writeFile("./src/data/config.json", JSON.stringify(config, null, 4));
             console.log(l.langUpdatedTextConsole + lang);

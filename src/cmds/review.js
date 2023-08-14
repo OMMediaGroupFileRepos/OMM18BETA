@@ -1,8 +1,9 @@
-const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const config = require("../data/config.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "general",
@@ -12,12 +13,12 @@ module.exports = {
         .addStringOption(option =>
             option.setName(l.reviewOptionOne)
             .addChoices(
-                { name: "⭐", value: "⭐" },
-                { name: "⭐⭐", value: "⭐⭐" },
-                { name: "⭐⭐⭐", value: "⭐⭐⭐" },
+                { name: "⭐⭐⭐⭐⭐", value: "⭐⭐⭐⭐⭐" },
                 { name: "⭐⭐⭐⭐", value: "⭐⭐⭐⭐" },
-                { name: "⭐⭐⭐⭐⭐", value: "⭐⭐⭐⭐⭐" }
-
+                { name: "⭐⭐⭐", value: "⭐⭐⭐" },
+                { name: "⭐⭐", value: "⭐⭐" },
+                { name: "⭐", value: "⭐" },
+                { name: "❌", value: "❌"},
             )
                 .setDescription(l.starsDesc)
                 .setRequired(true))
@@ -36,19 +37,18 @@ module.exports = {
         const stars = await interaction.options.getString(l.reviewOptionOne);
 
         var color = "";
-        if (amount == "⭐⭐⭐⭐⭐") color = "#3E7243";
-        if (amount == "⭐⭐⭐⭐") color = "#75A778";
-        if (amount == "⭐⭐⭐") color = "#E2AD31";
-        if (amount == "⭐⭐") color = "#CD6831";
-        if (amount == "⭐") color = "#E14B40";
+        if (amount == "⭐⭐⭐⭐⭐") color = embeds.color.revA;
+        if (amount == "⭐⭐⭐⭐") color = embeds.color.revB;
+        if (amount == "⭐⭐⭐") color = embeds.color.revC;
+        if (amount == "⭐⭐") color = embeds.color.revD;
+        if (amount == "⭐") color = embeds.color.revE;
+        if (amount == "❌") color = embeds.color.revF;
 
         let embed = new EmbedBuilder()
             .setTitle(stars)
-            .addFields(
-                { name: l.reviewWhy, value: `*${msg}*` }
-            )
+            .setDescription("\n```" + msg + "```")
             .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
-            .setFooter({ text: interaction.user.tag })
+            .setFooter({ text: "Review by " + interaction.user.username })
             .setColor(color)
             .setTimestamp()
 

@@ -3,6 +3,7 @@ const config = require("../data/config.json");
 
 var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
+const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
     category: "information",
@@ -18,7 +19,7 @@ module.exports = {
                 { name: l.pingCmd_2, value: `\`\`\`${Math.round(client.ws.ping)}ms\`\`\`` }
             )
             .setFooter({ text: config.footer })
-            .setColor("#80ddd9")
+            .setColor(embeds.color.default)
             .setTimestamp()
 
         await interaction.reply({embeds: [embed], ephemeral: true})

@@ -1,0 +1,14 @@
+{
+    "color": {
+        "unknownError": "#ff0f13",
+        "success": "#5fe286",
+        "suggestion": "#f9bd54",
+        "revA": "#3E7243",
+        "revB": "#75A778",
+        "revC": "#E2AD31",
+        "revD": "#CD6831",
+        "revE": "#E14B40",
+        "updateLogs": "#367067",
+        "default": "#80ddd9"
+    }
+}

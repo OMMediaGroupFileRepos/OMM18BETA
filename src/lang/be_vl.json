@@ -64,5 +64,18 @@
     "langOptionsDesc": "Kies de taal waarin u de bot wilt hebben",
     "reviewChannelInvalid": "[MISLUKT] Het reviewkanaal bestaat niet",
     "suggestionChannelInvalid": "[MISLUKT] Het suggestiekanaal bestaat niet",
-    "ticketTitle": "Ondersteuningsticket"
+    "ticketTitle": "Ondersteuningsticket",
+    "regCmds": "[VOLTOOID] Slash commands zijn met succes ingeladen",
+    "load": "[INGELADEN]",
+    "done": "[VOLTOOID]",
+    "completeMigration": "Gelieve het onderstaande command uit te voeren om de migratie te voltooien",
+    "updateBotRepo": "Update uw bot om te laatste features te verkrijgen",
+    "repoChanged": "De repository is omgeschakeld naar ",
+    "selectRepo": "Selecteer uw gewenste repository",
+    "repository": "repository",
+    "repoDesc": "verander de repository om uw bot te customizen hoe u wilt",
+    "stable": "Stabiel",
+    "beta": "BETA",
+    "extra": "Extra",
+    "updateLogsSelect": "update"
     }
