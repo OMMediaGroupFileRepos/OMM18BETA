@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, MessageEmbed } = require("discord.js");
+const { SlashCommandBuilder, MessageEmbed, PermissionFlagsBits } = require("discord.js");
 const fs = require("fs");
 const config = require("../data/config.json");
 
@@ -10,6 +10,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("addcommand")
         .setDescription("add a custom command.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption(option => option.setName("command").setDescription("The custom command name").setRequired(true))
         .addStringOption(option => option.setName("code").setDescription("The JavaScript code for the custom command").setRequired(true)),
     async execute(client, interaction) {

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, Embed } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { exec } = require('child_process');
 const config = require("../data/config.json");
 
@@ -10,6 +10,7 @@ module.exports = {
     category: "information",
     data: new SlashCommandBuilder()
         .setName("update")
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
         .setDescription("updaten."),
     async execute(client, interaction) {
 

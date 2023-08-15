@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const config = require("../data/config.json");
 const embeds = require(`../data/embedSettings.json`);
 const fs = require("fs").promises;
@@ -11,6 +11,7 @@ const l = require(`../lang/${langConf}.json`);
             category: "information",
             data: new SlashCommandBuilder()
                 .setName(l.repository)
+                .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
                 .setDescription(l.repoDesc)
                 .addStringOption(option =>
                     option.setName(l.repository)

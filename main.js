@@ -35,10 +35,6 @@ client.once("ready", () => {
 
 });
 
-if (!fs.existsSync("./src/custom")) {
-    fs.mkdirSync("./src/custom");
-}
-
 const cmdsPath = path.join(__dirname, "src/cmds");
 const files = fs.readdirSync("./src/cmds/").filter(file => file.endsWith(".js"));
 
@@ -52,20 +48,6 @@ for (const file of files) {
     console.log(`${l.load} ${command.data.name}`);
 
 }
-/*
-const customCmdsPath = path.join(__dirname, "src/custom");
-const customCmdFiles = fs.readdirSync("./src/custom/").filter(file => file.endsWith(".js"));
-
-for (const file of customCmdFiles) {
-    const customFilePath = path.join(customCmdsPath, customCmdFiles);
-    const customCommand = require(customFilePath);
-
-    client.commands.set(customCommand.data.name, command);
-    customCmds.push(customCommand.data.toJSON());
-
-    console.log(`[CUSTOM] ${customCommand.data.name}`);
-
-}*/
 
 client.on("interactionCreate", async interaction => {
     if (!interaction.isChatInputCommand()) return;
