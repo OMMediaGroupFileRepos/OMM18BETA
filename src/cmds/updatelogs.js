@@ -34,7 +34,7 @@ module.exports = {
 
         let latest = new EmbedBuilder()
             .setTitle("Latest update (" + pkg.version + ")")
-            .setDescription("**__What's new?__**\n\n```diff\nAdded the following languages:\n+ Vlaams (Belgium)\n+ French (France)\n+ Brabants (Netherlands)\n+ Ukrainian (Ukraine)\n```\n\n** **")
+            .setDescription("**__What's new?__**\n\n```diff\n/config\n```\n\n** **")
             .setFooter({ text: config.footer })
             .setColor(embeds.color.updateLogs)
             .setTimestamp()
