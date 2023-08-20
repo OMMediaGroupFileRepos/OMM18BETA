@@ -273,8 +273,17 @@ module.exports = {
             console.error('Fout bij het bijwerken van configuratie:', error);
         }
         
-        if (usrSelectInfo == "view") interaction.reply({embeds: [infoEmbed], ephemeral: true});
-        if (usrSelectInfo == "update") interaction.reply({ content: `\`\`\`Nope\`\`\``, ephemeral: true })
+        let updateEmbed = new EmbedBuilder()
+            .setTitle("**Updating the bot...**\n** **\n")
+            .setDescription("**`Execute the command below to see what's new!`**\n```/updatelogs update:Latest```\n** **\n*NOTE!*\n**The bot will check for changes and restarts, it might not change anything if there are no changes, we recommend you to follow our updates we announce them.\n\n**Note! if you run the beta version of OMM18, you might not see any new updatelogs until a new stable release**\n** **\n")
+            .setFooter({ text: config.footer })
+            .setColor(embeds.color.success)
+            .setTimestamp()
+
+        if (usrSelectInfo == "view") interaction.reply({ embeds: [infoEmbed], ephemeral: true });
+        if (usrSelectInfo == "update") interaction.reply({ embeds: [updateEmbed], ephemeral: true }).then(
+            exec('bash update.sh')
+        )
         if (usrSelectInfo == "reload") interaction.reply({ content: `\`\`\`Restarting...\`\`\``, ephemeral: true }).then(
             exec('bash reboot.sh')
         )
