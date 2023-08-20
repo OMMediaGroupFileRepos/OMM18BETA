@@ -31,12 +31,13 @@ module.exports = {
 
     async execute(client, interaction) {
 
-        var response = "**Commands**";
-        var general = "***__General__***";
-        var information = "***__Information__***";
-        var moderation = "***__Moderation__***";
-        var fun = "***__Fun__***";
-        var owner = "***__Owner__***";
+        var response = "# Commands";
+        var general = "## General\n";
+        var information = "## Information\n";
+        var support = "## Support\n";
+        var moderation = "## Moderation\n";
+        var fun = "## Fun\n";
+        var owner = "## Owner\n";
 
         client.commands.forEach(cmd => {
             switch (cmd.category) {
@@ -62,12 +63,14 @@ module.exports = {
             }
         });
 
-        const option = await interaction.options.getString("test");
+        //const option = await interaction.options.getString("test");
+
+        var res = response + "\n" + general + "\n" + information + "\n" + support + "\n" + moderation + "\n" + fun + "\n" + owner;
 
         
 
-        //interaction.reply({ content: [res], ephemeral: true })
-        interaction.reply({content: l.notAvailable, ephemeral: true})
+        interaction.reply({ content: `${res}`, ephemeral: true })
+        //interaction.reply({content: l.notAvailable, ephemeral: true})
 
     },
 };
