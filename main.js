@@ -11,7 +11,6 @@ const clientData = require("../data/clients.json");
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.MessageContent] });
 client.commands = new Collection();
 const cmds = [];
-const customCmds = [];
 
 let clientName = config.client;
 var token = clientData[clientName].login;
