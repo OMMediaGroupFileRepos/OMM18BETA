@@ -6,7 +6,7 @@ const l = require(`../lang/${langConf}.json`);
 const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
-    category: "information",
+    category: "fun",
     data: new SlashCommandBuilder()
         .setName("8ball")
         .setDescription("the magic classic 8ball game")

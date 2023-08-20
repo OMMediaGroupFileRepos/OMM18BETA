@@ -7,7 +7,7 @@ const l = require(`../lang/${langConf}.json`);
 const embeds = require(`../data/embedSettings.json`);
 
 module.exports = {
-    category: "general",
+    category: "information",
     data: new SlashCommandBuilder()
         .setName(l.updateLogs)
         .setDescription(l.updateLogsDesc)

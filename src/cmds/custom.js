@@ -6,7 +6,7 @@ var langConf = config.lang;
 const l = require(`../lang/${langConf}.json`);
 
 module.exports = {
-    category: "information",
+    category: "owner",
     data: new SlashCommandBuilder()
         .setName("addcommand")
         .setDescription("add a custom command.")
