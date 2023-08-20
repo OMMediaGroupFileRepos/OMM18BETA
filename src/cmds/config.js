@@ -29,7 +29,7 @@ module.exports = {
                 .setDescription("set the language of the bot (selection)")
                 .setRequired(false))
         .addStringOption(option =>
-            option.setName("botsettings")
+            option.setName("settings")
                 .addChoices(
                         { name: "View", value: "view" },
                         { name: "Kernelupdate", value: "update" },
