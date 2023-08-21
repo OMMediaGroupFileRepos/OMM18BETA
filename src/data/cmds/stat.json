@@ -1,0 +1,11 @@
+{
+    "8ball": "enabled",
+    "close": "enabled",
+    "create": "enabled",
+    "custom": "enabled",
+    "help": "enabled",
+    "ping": "enabled",
+    "review": "enabled",
+    "suggest": "enabled",
+    "updatelogs": "enabled"
+}

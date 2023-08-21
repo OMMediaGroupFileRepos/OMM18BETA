@@ -7,6 +7,7 @@ const embeds = require(`./src/data/embedSettings.json`);
 
 const config = require("./src/data/config.json");
 const clientData = require("../data/clients.json");
+const { state } = require("./src/cmds/8ball");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.MessageContent] });
 client.commands = new Collection();
@@ -53,7 +54,8 @@ client.on("interactionCreate", async interaction => {
 
     const command = client.commands.get(interaction.commandName)
 
-    if (!command) return;
+    if(client.commands.get(state) == "disabled") return;
+    if(!command) return;
 
     try {
         await command.execute(client, interaction);

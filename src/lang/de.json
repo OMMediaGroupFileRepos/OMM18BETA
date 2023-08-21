@@ -26,7 +26,7 @@
     "notAvailable": "```Diese Option ist momentan nicht verfügbar, vielleicht wird sie später hinzugefügt```",
     "updateLogs": "updatelogs",
     "updateLogsDesc": "Zeigt dir alle Neuigkeiten und Veränderungen",
-    "ticketCreate": "ticket",
+    "ticketCreate": "unterstützungsanfrage",
     "ticketCreateDesc": "Lässt dich ein Support Ticket erstellen, um Hilfe zu erhalten",
     "ticketClose": "schließen",
     "ticketCloseDesc": "Schließt das Ticket",
