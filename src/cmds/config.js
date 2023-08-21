@@ -23,8 +23,9 @@ module.exports = {
                     { name: "Limburgs (NL-LI)", value: "nl_li" },
                     { name: "Brabants (NL-BR)", value: "nl_br" },
                     { name: "Flemish/Vlaams (BE-VL)", value: "be_vl" },
-                    { name: "French/Français (FR)", value: "fr" },
                     { name: "Ukrainian/Українська (UKR)", value: "ukr" },
+                    { name: "French/Français (FR)", value: "fr" },
+                    { name: "Polish/Polski (PL)", value: "pl"}
                 )
                 .setDescription("set the language of the bot (selection)")
                 .setRequired(false))
