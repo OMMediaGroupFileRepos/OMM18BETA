@@ -1,8 +1,8 @@
 {
     "ping": "ping",
     "pingDesc": "Odpowiada z opóźnieniem",
-    "pingCmd_1": "Czas odpowiedzi użytkownika:",
-    "pingCmd_2": "Czas odpowiedzi Discorda:",
+    "pingCmd_1": " Czas odpowiedzi użytkownika:",
+    "pingCmd_2": " Czas odpowiedzi Discorda:",
     "review": "recenzja",
     "reviewOptionOne": "gwiazdki",
     "reviewOptionTwo": "dlaczego",
