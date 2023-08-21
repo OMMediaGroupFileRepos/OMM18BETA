@@ -76,19 +76,16 @@ client.on("guildMemberAdd", member => {
 
     let welcomeEmbed = new EmbedBuilder()
     .setTitle(`${l.welcomeMsg_1}`)
-            .setDescription(`${l.welcomeMsg_2} ${config.guildName} ${member}***!***\n${l.welcomeMsg_3}`)
+            .setDescription(`${l.welcomeMsg_2} ${config.guildName} ${member}***!***\n${config.joinMsg}`)
             .setFooter({ text: config.footer })
             .setThumbnail(member.displayAvatarURL({ dynamic: true }))
             .setTimestamp();
+            
     var role = member.guild.roles.cache.get(config.joinRole);
-
     if (!role) return console.log(`Het id ${role} bestaat niet...`);
-    else(member.roles.add(role)).then(
-        console.log("Rol gegeven!")
-    )
+    else(member.roles.add(role))
 
     var channel = member.guild.channels.cache.get(config.welcomeChannel);
-
     if (!channel) console.log(`Het kanaalid ${channel} bestaat niet...`);
 
     channel.send({ embeds: [welcomeEmbed] })

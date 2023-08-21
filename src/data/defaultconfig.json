@@ -2,8 +2,8 @@
     "client": "test",
     "id": "clientid",
     "guild": "id",
-    "footer": "2015-2023 | OfficieelMikaMediaGroup",
-    "watermark_nostamp": "OfficieelMikaMedia",
+    "footer": "2015-2023 | OfficieelMika",
+    "watermark_nostamp": "OfficieelMika",
     "lang": "en",
     "reviewChannel": "id",
     "suggestChannel": "id",
@@ -12,5 +12,6 @@
     "supportRole": "name",
     "joinRole": "id",
     "welcomeChannel": "id",
-    "guildName": "name"
+    "guildName": "name",
+    "joinMsg": "This setting needs to be changed, change it as owner by using `/config joinmessage:`\nEnter a message and it will be shown here, you can use backslash (/) + n to add new lines!\nEnjoy your stay!"
 }

@@ -25,28 +25,28 @@ module.exports = {
                     { name: "Flemish/Vlaams (BE-VL)", value: "be_vl" },
                     { name: "Ukrainian/Українська (UKR)", value: "ukr" },
                     { name: "French/Français (FR)", value: "fr" },
-                    { name: "Polish/Polski (PL)", value: "pl"}
+                    { name: "Polish/Polski (PL)", value: "pl" }
                 )
                 .setDescription("set the language of the bot (selection)")
                 .setRequired(false))
         .addStringOption(option =>
             option.setName("settings")
                 .addChoices(
-                        { name: "View", value: "view" },
-                        { name: "Kernelupdate", value: "update" },
-                        { name: "Reload", value: "reload" },
-                    )
-                        .setDescription("set the repository of the bot (selection)")
-                        .setRequired(false))
+                    { name: "View", value: "view" },
+                    { name: "Kernelupdate", value: "update" },
+                    { name: "Reload", value: "reload" },
+                )
+                .setDescription("set the repository of the bot (selection)")
+                .setRequired(false))
         .addStringOption(option =>
             option.setName("repository")
                 .addChoices(
-                        { name: "Stable", value: "stable" },
-                        { name: "Beta", value: "beta" },
-                        { name: "Extra", value: "ext" },
-                    )
-                    .setDescription("set the repository of the bot (selection)")
-                    .setRequired(false))
+                    { name: "Stable", value: "stable" },
+                    { name: "Beta", value: "beta" },
+                    { name: "Extra", value: "ext" },
+                )
+                .setDescription("set the repository of the bot (selection)")
+                .setRequired(false))
         .addChannelOption(option =>
             option.setName(`suggestions`)
                 .setDescription(`set the suggestionschannel (id)`)
@@ -84,7 +84,7 @@ module.exports = {
             option.setName(`guildname`)
                 .setDescription(`guildname (name)`)
                 .setRequired(false))
-         .addStringOption(option =>
+        .addStringOption(option =>
             option.setName(`embedcolor-unknownerror`)
                 .setDescription(`'Unknown Error' colorcode (hex)`)
                 .setRequired(false))
@@ -121,12 +121,16 @@ module.exports = {
                 .setDescription(`'No star review' colorcode (hex)`)
                 .setRequired(false))
         .addStringOption(option =>
-                option.setName(`embedcolor-updatelogs`)
+            option.setName(`embedcolor-updatelogs`)
                 .setDescription(`'Updatelogs' colorcode (hex)`)
                 .setRequired(false))
         .addStringOption(option =>
             option.setName(`embedcolor`)
                 .setDescription(`Default colorcode (hex)`)
+                .setRequired(false))
+        .addStringOption(option =>
+            option.setName(`joinmessage`)
+                .setDescription(`Message under the welcome to message at welcoming (text)`)
                 .setRequired(false)),
 
     async execute(client, interaction) {
@@ -147,26 +151,26 @@ module.exports = {
         if (config.lang == "pl") langName = "Polish (Poland/PL)";
 
         let infoEmbed = new EmbedBuilder()
-        .setTitle("Information of `" + client.user.username + "` in ***" + config.guildName + "***")
+            .setTitle("Information of `" + client.user.username + "` in ***" + config.guildName + "***")
             .addFields(
                 { name: `Language`, value: langName, inline: true },
                 { name: `Suggestions are being sent to`, value: `<#${config.suggestChannel}>`, inline: true },
-                { name: `Reviews are being sent to`, value: `<#${config.reviewChannel}>`, inline: true},
-                { name: `Logs are being sent to`, value: `<#${config.logging}>`, inline: true},
-                { name: `Tickets will be made at the category`, value: `<#${config.ticketCat}>`, inline: true},
-                { name: `Permissions in tickets will be granted to`, value: `@${config.supportRole}`, inline: true},
-                { name: `New members will get the role`, value: `@${config.joinRole}`, inline: true},
-                { name: `New members will be welcomed with an message in`, value: `<#${config.welcomeChannel}>`, inline: true},
+                { name: `Reviews are being sent to`, value: `<#${config.reviewChannel}>`, inline: true },
+                { name: `Logs are being sent to`, value: `<#${config.logging}>`, inline: true },
+                { name: `Tickets will be made at the category`, value: `<#${config.ticketCat}>`, inline: true },
+                { name: `Permissions in tickets will be granted to`, value: `@${config.supportRole}`, inline: true },
+                { name: `New members will get the role`, value: `@${config.joinRole}`, inline: true },
+                { name: `New members will be welcomed with an message in`, value: `<#${config.welcomeChannel}>`, inline: true },
                 { name: `The bot will know this server as`, value: config.guildName, inline: true },
-                { name: config.guildName + `'s serverid is`, value: config.guild, inline: true},
-                { name: client.user.username + `'s id is`, value: config.id, inline: true},
+                { name: config.guildName + `'s serverid is`, value: config.guild, inline: true },
+                { name: client.user.username + `'s id is`, value: config.id, inline: true },
             )
             .setFooter({ text: config.footer })
             .setColor(embeds.color.default)
             .setTimestamp()
 
-            //if (usrSelectInfo == "view") interaction.reply({embeds: [infoEmbed], ephemeral: true});
-            //if (usrSelectInfo == "reload") exec('bash reboot.sh');
+        //if (usrSelectInfo == "view") interaction.reply({embeds: [infoEmbed], ephemeral: true});
+        //if (usrSelectInfo == "reload") exec('bash reboot.sh');
 
         let repositoryUrl = "";
         let versionName = "";
@@ -182,21 +186,21 @@ module.exports = {
         }
 
         let embed = new EmbedBuilder()
-                .setTitle(l.repoChanged + versionName)
-                .setDescription(l.updateBotRepo)
-                .addFields(
-                    { name: l.completeMigration, value: "```/update```"}
-                )
-                .setFooter({ text: config.footer })
-                .setColor(embeds.color.success)
-                .setTimestamp();
+            .setTitle(l.repoChanged + versionName)
+            .setDescription(l.updateBotRepo)
+            .addFields(
+                { name: l.completeMigration, value: "```/update```" }
+            )
+            .setFooter({ text: config.footer })
+            .setColor(embeds.color.success)
+            .setTimestamp();
 
-                let channel = client.channels.cache.get(config.suggestChannel);
-            //var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name == config.logging);
+        let channel = client.channels.cache.get(config.suggestChannel);
+        //var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name == config.logging);
 
-            if (!channel) interaction.reply("```diff\n- " + l.logsDoNotExist + "\n```");
+        if (!channel) interaction.reply("```diff\n- " + l.logsDoNotExist + "\n```");
 
-            if(selectedVersion) channel.send({ embeds: [embed] })
+        if (selectedVersion) channel.send({ embeds: [embed] })
 
         // send repo changed embed to logs
 
@@ -209,6 +213,7 @@ module.exports = {
         const prevJoinRole = config.joinRole;
         const prevWelChannel = config.welcomeChannel;
         const prevGuildName = config.guildName;
+        const prevJoinMsg = config.joinMsg;
 
         const newLang = interaction.options.getString("language") || prevLang;
         const newSug = interaction.options.getChannel("suggestions")?.id || prevSug;
@@ -219,6 +224,7 @@ module.exports = {
         const newJoinRole = interaction.options.getRole("joinrole")?.id || prevJoinRole;
         const newWelChannel = interaction.options.getChannel("welcomechannel")?.id || prevWelChannel;
         const newGuildName = interaction.options.getString("guildname") || prevGuildName;
+        const newJoinMsg = interaction.options.getString("joinmessage") || prevJoinMsg;
 
         config.lang = newLang;
         config.suggestChannel = newSug;
@@ -229,6 +235,7 @@ module.exports = {
         config.joinRole = newJoinRole;
         config.welcomeChannel = newWelChannel;
         config.guildName = newGuildName;
+        config.joinMsg = newJoinMsg;
 
         const configPath = path.join(__dirname, '../data/config.json');
         try {
@@ -273,7 +280,7 @@ module.exports = {
         } catch (error) {
             console.error('Fout bij het bijwerken van configuratie:', error);
         }
-        
+
         let updateEmbed = new EmbedBuilder()
             .setTitle("**Updating the bot...**\n** **\n")
             .setDescription("**`Execute the command below to see what's new!`**\n```/updatelogs update:Latest```\n** **\n*NOTE!*\n**The bot will check for changes and restarts, it might not change anything if there are no changes, we recommend you to follow our updates we announce them.\n\n**Note! if you run the beta version of OMM18, you might not see any new updatelogs until a new stable release**\n** **\n")
