@@ -88,7 +88,7 @@ module.exports = {
             .setColor(embeds.color.success)
             .setTimestamp();
 
-        var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name === config.logging);
+        var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.id === config.logging);
 
         if (!ticketChannel) interaction.reply("```diff" + l.logsDoNotExist + "\n```");
 

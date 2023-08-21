@@ -28,13 +28,13 @@ module.exports = {
         }
 
         var embed = new EmbedBuilder()
-            .setTitle("**__"+ l.ticketTitle + interaction.channel.name + "__**")
+            .setTitle("**__"+ l.ticketTitle + " " + interaction.channel.name + "__**")
             .setDescription(`${l.ticketClosingReason} **${reason}**\n${l.ticketClosedBy} **${interaction.user.username}**\n${l.ticketMadeBy} **${interaction.channel.name}**`)
             .setFooter({ text: l.ticketProvidedBy + " " + config.watermark_nostamp })
             .setColor(embeds.color.success) 
             .setTimestamp();
 
-        var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.name === config.logging);
+        var ticketChannel = interaction.member.guild.channels.cache.find(channel => channel.id === config.logging);
 
         if (!ticketChannel) interaction.reply("```diff" + l.logsDoNotExist + "\n```");
 

@@ -216,7 +216,7 @@ module.exports = {
         const newLog = interaction.options.getChannel("logs")?.id || prevLog;
         const newTicket = interaction.options.getChannel("supportcategory")?.id || prevTicket;
         const newSupportRole = interaction.options.getRole("supportrole")?.name || prevSupportRole;
-        const newJoinRole = interaction.options.getRole("joinrole")?.name || prevJoinRole;
+        const newJoinRole = interaction.options.getRole("joinrole")?.id || prevJoinRole;
         const newWelChannel = interaction.options.getChannel("welcomechannel")?.id || prevWelChannel;
         const newGuildName = interaction.options.getString("guildname") || prevGuildName;
 

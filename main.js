@@ -43,6 +43,7 @@ for (const file of files) {
     const command = require(filePath);
 
     client.commands.set(command.data.name, command);
+    //if(command.state == "disabled") ;
     cmds.push(command.data.toJSON());
 
     console.log(`${l.load} ${command.data.name}`);
@@ -82,8 +83,11 @@ client.on("guildMemberAdd", member => {
     var role = member.guild.roles.cache.get(config.joinRole);
 
     if (!role) return console.log(`Het id ${role} bestaat niet...`);
+    else(member.roles.add(role)).then(
+        console.log("Rol gegeven!")
+    )
 
-    var channel = member.guild.channels.cache.get(config.guild);
+    var channel = member.guild.channels.cache.get(config.welcomeChannel);
 
     if (!channel) console.log(`Het kanaalid ${channel} bestaat niet...`);
 
