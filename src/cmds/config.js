@@ -344,21 +344,17 @@ exec('git rev-list --count origin/main..main', (error, stdout, stderr) => {
   // Hier kun je de emoji en description variabelen gebruiken om het Embed-object te maken
   const healthCheckEmbed = new EmbedBuilder()
     .setTitle(`${client.user.username}'s status`)
-    .setDescription(`# ${description}`)
-    .addFields(
-      { name: `** **`, value: `# ${emoji}`, inline: true },
-      { name: `** **`, value: `# ${description}`, inline: true},
-    )
+    .setDescription(`# ${emoji} ${description}`)
     .setFooter({ text: config.footer })
     .setColor(embeds.color.default)
     .setTimestamp();
 
   //if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
-});
 
             
 
         if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
+    });
         if (usrSelectInfo == "view") interaction.reply({ embeds: [infoEmbed], ephemeral: true });
         if (usrSelectInfo == "update") interaction.reply({ embeds: [updateEmbed], ephemeral: true }).then(
             exec('bash update.sh')
