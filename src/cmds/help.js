@@ -16,18 +16,18 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName(l.help)
         .setDescription(l.helpDesc),
-        /*.addStringOption(option =>
-            option.setName("test")
-                .addChoices(
-                    { name: "General", value: general },
-                    { name: "Information", value: information },
-                    { name: "Moderation", value: moderation },
-                    { name: "Fun", value: fun },
-                    { name: "Owner", value: owner }
+    /*.addStringOption(option =>
+        option.setName("test")
+            .addChoices(
+                { name: "General", value: general },
+                { name: "Information", value: information },
+                { name: "Moderation", value: moderation },
+                { name: "Fun", value: fun },
+                { name: "Owner", value: owner }
 
-                )
-                .setDescription("test")
-                .setRequired(true)),*/
+            )
+            .setDescription("test")
+            .setRequired(true)),*/
 
     async execute(client, interaction) {
 
@@ -50,6 +50,10 @@ module.exports = {
                     information += `/${cmd.data.name} | ${cmd.data.description}\n`
                     break;
 
+                case "support":
+                    support += `/${cmd.data.name} | ${cmd.data.description}\n`
+                    break;
+
                 case "moderation":
                     moderation += `/${cmd.data.name} | ${cmd.data.description}\n`
                     break;
@@ -67,7 +71,7 @@ module.exports = {
 
         var res = response + "\n" + general + "\n" + information + "\n" + support + "\n" + moderation + "\n" + fun + "\n" + owner;
 
-        
+
 
         interaction.reply({ content: `${res}`, ephemeral: true })
         //interaction.reply({content: l.notAvailable, ephemeral: true})
