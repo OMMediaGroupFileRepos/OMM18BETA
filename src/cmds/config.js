@@ -300,7 +300,7 @@ const emojis = {
 };
 
 // Voer het Git-commando uit om het aantal commits op de main-branch op te halen
-exec('git rev-list --count origin/main..main', (error, stdout, stderr) => {
+exec('git rev-list --count origin', (error, stdout, stderr) => {
   if (error) {
     console.error('Error:', error);
     return;
