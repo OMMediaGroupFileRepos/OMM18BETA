@@ -353,11 +353,12 @@ exec('git rev-list --count origin/main..main', (error, stdout, stderr) => {
     .setColor(embeds.color.default)
     .setTimestamp();
 
-  if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
+  //if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
 });
 
             
 
+        if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
         if (usrSelectInfo == "view") interaction.reply({ embeds: [infoEmbed], ephemeral: true });
         if (usrSelectInfo == "update") interaction.reply({ embeds: [updateEmbed], ephemeral: true }).then(
             exec('bash update.sh')
