@@ -79,6 +79,7 @@ client.on("guildMemberAdd", member => {
             .setDescription(`${l.welcomeMsg_2} ${config.guildName} ${member}***!***\n${config.joinMsg}`)
             .setFooter({ text: config.footer })
             .setThumbnail(member.displayAvatarURL({ dynamic: true }))
+            .setColor(embeds.color.default)
             .setTimestamp();
             
     var role = member.guild.roles.cache.get(config.joinRole);

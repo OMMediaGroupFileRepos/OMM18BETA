@@ -13,5 +13,5 @@
     "joinRole": "id",
     "welcomeChannel": "id",
     "guildName": "name",
-    "joinMsg": "This setting needs to be changed, change it as owner by using `/config joinmessage:`\nEnter a message and it will be shown here, you can use backslash (/) + n to add new lines!\nEnjoy your stay!"
+    "joinMsg": "\nThis setting needs to be changed, change it as owner by using `/config joinmessage:`\nEnter a message and it will be shown here, you can use backslash (/) + n to add new lines!\nEnjoy your stay!"
 }
