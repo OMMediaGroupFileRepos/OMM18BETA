@@ -300,22 +300,14 @@ const emojis = {
 };
 
 // Voer het Git-commando uit om het aantal commits op de main-branch op te halen
-/*exec('git rev-list --count origin', (error, stdout, stderr) => {
+exec('git fetch origin && git rev-list --count origin', (error, stdout, stderr) => {
   if (error) {
     console.error('Error:', error);
     return;
   }
 
   // Parse de uitvoer naar een integer
-  const commitCount = parseInt(stdout.trim(), 10);*/
-
-  exec('git fetch origin && git rev-list --count origin..', (error, stdout, stderr) => {
-    if (error) {
-      console.error('Error:', error);
-      return;
-    }
-  
-    const commitCount = parseInt(stdout.trim(), 10);
+  const commitCount = parseInt(stdout.trim(), 10);
 
   // Simuleer de end-of-life-status
   const soonEndOfLife = false;
