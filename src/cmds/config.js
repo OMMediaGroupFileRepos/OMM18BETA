@@ -42,7 +42,7 @@ module.exports = {
         .addStringOption(option =>
             option.setName("repository")
                 .addChoices(
-                    { name: "[OMM19] Extra (MFM exclusive)", value: "19ext" },
+                    { name: "[OMM19] Extra (MFM exclusive)", value: "ext19a" },
                     { name: "[OMM18] Stable", value: "stable" },
                     { name: "[OMM18] Beta", value: "beta" },
                     { name: "[OMM18] Extra", value: "ext" },
