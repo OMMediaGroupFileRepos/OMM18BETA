@@ -42,11 +42,16 @@ module.exports = {
         .addStringOption(option =>
             option.setName("repository")
                 .addChoices(
-                    { name: "Stable", value: "stable" },
-                    { name: "Beta", value: "beta" },
-                    { name: "Extra", value: "ext" },
+                    { name: "[OMM19] Extra (MFM exclusive)", value: "19ext" },
+                    { name: "[OMM18] Stable", value: "stable" },
+                    { name: "[OMM18] Beta", value: "beta" },
+                    { name: "[OMM18] Extra", value: "ext" },
                 )
                 .setDescription("set the repository of the bot (selection)")
+                .setRequired(false))
+        .addStringOption(option =>
+            option.setName("repository-key")
+                .setDescription("enter the key that is required to active exclusive repositories. (text)")
                 .setRequired(false))
         .addChannelOption(option =>
             option.setName(`suggestions`)
@@ -137,6 +142,7 @@ module.exports = {
     async execute(client, interaction) {
 
         const selectedVersion = interaction.options.getString(l.repository);
+        const key = interaction.options.getString("repository-key")
         const usrSelectInfo = interaction.options.getString("settings")
         langName = "";
 
@@ -183,6 +189,14 @@ module.exports = {
         } else if (selectedVersion === "extra") {
             repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM18BETA";
             versionName = l.extra;
+        } else if (selectedVersion === "ext19a" && !key ) {
+            return interaction.reply({ content: "```Sorry, but this repository requires key verification.```", ephemeral: true })
+        } else if (selectedVersion === "ext19a" && key !== "!" ) {
+            return interaction.reply({ content: "```Sorry, but the key you entered is invalid, this repository requires an valid key to grant access to updates.```", ephemeral: true })
+        } else if (selectedVersion === "ext19a" && key === "!") {
+            repositoryUrl = "https://github.com/OMMediaGroupFileRepos/OMM19EXTRA-MFM24";
+            versionName = "OMM19 EXTRA (Exclusive version for MikaFM)";
+            return interaction.reply({ content: "```Sorry, but it seems like the connection to the updateserver is not available, maybe it's overloaded or offline?```", ephemeral: true })
         }
 
         let embed = new EmbedBuilder()
@@ -288,73 +302,73 @@ module.exports = {
             .setColor(embeds.color.success)
             .setTimestamp()
 
-            const { exec } = require('child_process');
+        const { exec } = require('child_process');
 
-// Kleuremoji's voor statusberichten
-const emojis = {
-  upToDate: '🟩',      // Groen
-  updatesAvailable: '🟨', // Geel
-  updatesUrgent: '🟧',    // Oranje
-  endOfLifeSoon: '🟥',   // Rood
-  endOfLife: '⬛'        // Zwart
-};
+        // Kleuremoji's voor statusberichten
+        const emojis = {
+            upToDate: '🟩',      // Groen
+            updatesAvailable: '🟨', // Geel
+            updatesUrgent: '🟧',    // Oranje
+            endOfLifeSoon: '🟥',   // Rood
+            endOfLife: '⬛'        // Zwart
+        };
 
-// Voer het Git-commando uit om het aantal commits op de main-branch op te halen
-exec('git fetch origin && git rev-list --count origin', (error, stdout, stderr) => {
-  if (error) {
-    console.error('Error:', error);
-    return;
-  }
+        // Voer het Git-commando uit om het aantal commits op de main-branch op te halen
+        exec('git fetch origin && git rev-list --count origin', (error, stdout, stderr) => {
+            if (error) {
+                console.error('Error:', error);
+                return;
+            }
 
-  // Parse de uitvoer naar een integer
-  const commitCount = parseInt(stdout.trim(), 10);
+            // Parse de uitvoer naar een integer
+            const commitCount = parseInt(stdout.trim(), 10);
 
-  // Simuleer de end-of-life-status
-  const soonEndOfLife = false;
-  const endOfLife = false;
+            // Simuleer de end-of-life-status
+            const soonEndOfLife = false;
+            const endOfLife = false;
 
-  // Variabelen voor emoji en beschrijving
-  let emoji = '';
-  let description = '';
+            // Variabelen voor emoji en beschrijving
+            let emoji = '';
+            let description = '';
 
-  // Controleer end-of-life-status en stel bijbehorende emoji en beschrijving in
-  if (endOfLife) {
-    // ... (vervolg van je code)
-  } else if (soonEndOfLife) {
-    // ... (vervolg van je code)
-  } else {
-    if (commitCount === 0) {
-      emoji = emojis.upToDate;
-      description = 'Bot is up-to-date.';
-    } else if (commitCount === 1) {
-      emoji = emojis.updatesAvailable;
-      description = 'There is 1 update available.';
-    } else if (commitCount > 1 && commitCount <= 30) {
-      emoji = emojis.updatesAvailable;
-      description = `There are ${commitCount} updates available.`;
-    } else if (commitCount > 30 && commitCount < 40) {
-      emoji = emojis.updatesUrgent;
-      description = `There are ${commitCount} updates available.`;
-    } else if (commitCount >= 40) {
-      emoji = emojis.updatesUrgent;
-      description = `There are ${commitCount} updates available. We recommend updating as soon as possible.`;
-    }
-  }
+            // Controleer end-of-life-status en stel bijbehorende emoji en beschrijving in
+            if (endOfLife) {
+                // ... (vervolg van je code)
+            } else if (soonEndOfLife) {
+                // ... (vervolg van je code)
+            } else {
+                if (commitCount === 0) {
+                    emoji = emojis.upToDate;
+                    description = 'Bot is up-to-date.';
+                } else if (commitCount === 1) {
+                    emoji = emojis.updatesAvailable;
+                    description = 'There is 1 update available.';
+                } else if (commitCount > 1 && commitCount <= 30) {
+                    emoji = emojis.updatesAvailable;
+                    description = `There are ${commitCount} updates available.`;
+                } else if (commitCount > 30 && commitCount < 40) {
+                    emoji = emojis.updatesUrgent;
+                    description = `There are ${commitCount} updates available.`;
+                } else if (commitCount >= 40) {
+                    emoji = emojis.updatesUrgent;
+                    description = `There are ${commitCount} updates available. We recommend updating as soon as possible.`;
+                }
+            }
 
-  // Hier kun je de emoji en description variabelen gebruiken om het Embed-object te maken
-  const healthCheckEmbed = new EmbedBuilder()
-    .setTitle(`${client.user.username}'s status`)
-    .setDescription(`# ${emoji} ${description}`)
-    .setFooter({ text: config.footer })
-    .setColor(embeds.color.default)
-    .setTimestamp();
+            // Hier kun je de emoji en description variabelen gebruiken om het Embed-object te maken
+            const healthCheckEmbed = new EmbedBuilder()
+                .setTitle(`${client.user.username}'s status`)
+                .setDescription(`# ${emoji} ${description}`)
+                .setFooter({ text: config.footer })
+                .setColor(embeds.color.default)
+                .setTimestamp();
 
-  //if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
+            //if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
 
-            
 
-        if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
-    });
+
+            if (usrSelectInfo == "check") interaction.reply({ embeds: [healthCheckEmbed], ephemeral: true });
+        });
         if (usrSelectInfo == "view") interaction.reply({ embeds: [infoEmbed], ephemeral: true });
         if (usrSelectInfo == "update") interaction.reply({ embeds: [updateEmbed], ephemeral: true }).then(
             exec('bash update.sh')
